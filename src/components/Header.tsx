@@ -31,19 +31,21 @@ export function Header() {
     currentIndex >= 0 ? ideas[(currentIndex + 1) % ideas.length] : null;
 
   return (
-    <header className="sticky top-0 z-10 border-b border-border bg-background">
+    <header className="border-border bg-background sticky top-0 z-10 border-b">
       <div className="grid h-16 grid-cols-[1fr_auto_1fr] items-center px-8">
         <div className="flex justify-start">
           {prevIdea ? (
             <Link
               to={`/${prevIdea.path}`}
-              className="flex items-center gap-2 text-muted-foreground transition-colors hover:text-primary"
+              className="text-muted-foreground hover:text-primary flex items-center gap-2 transition-colors"
             >
               <ChevronLeft className="h-4 w-4" />
-              <span className="text-xs uppercase tracking-widest">{prevIdea.title}</span>
+              <span className="text-xs tracking-widest uppercase">
+                {prevIdea.title}
+              </span>
             </Link>
           ) : (
-            <span className="pointer-events-none opacity-0 flex items-center gap-2">
+            <span className="pointer-events-none flex items-center gap-2 opacity-0">
               <ChevronLeft className="h-4 w-4" />
             </span>
           )}
@@ -51,11 +53,11 @@ export function Header() {
 
         <Popover open={open} onOpenChange={setOpen}>
           <PopoverTrigger asChild>
-            <button className="flex items-center gap-1 rounded-md px-3 py-2 transition-colors hover:bg-primary/10 focus:outline-none group">
-              <span className="text-sm uppercase tracking-widest text-muted-foreground group-hover:text-primary transition-colors">
+            <button className="hover:bg-primary/10 group flex items-center gap-1 rounded-md px-3 py-2 transition-colors focus:outline-none">
+              <span className="text-muted-foreground group-hover:text-primary text-sm tracking-widest uppercase transition-colors">
                 {currentIdea ? currentIdea.title : "Schmkls"}
               </span>
-              <ChevronsUpDown className="h-3 w-3 text-muted-foreground opacity-50 group-hover:text-primary group-hover:opacity-100 transition-colors" />
+              <ChevronsUpDown className="text-muted-foreground group-hover:text-primary h-3 w-3 opacity-50 transition-colors group-hover:opacity-100" />
             </button>
           </PopoverTrigger>
           <PopoverContent className="w-56" align="center">
@@ -71,12 +73,12 @@ export function Header() {
                       void navigate(`/${idea.path}`);
                       setOpen(false);
                     }}
-                    className="m-1 hover:bg-primary/10 hover:text-primary data-[selected=true]:bg-primary/10 data-[selected=true]:text-primary"
+                    className="hover:bg-primary/10 hover:text-primary data-[selected=true]:bg-primary/10 data-[selected=true]:text-primary m-1"
                   >
                     {idea.title}
                     <Check
                       className={cn(
-                        "ml-auto text-primary",
+                        "text-primary ml-auto",
                         `/${idea.path}` === pathname
                           ? "opacity-100"
                           : "opacity-0",
@@ -93,13 +95,15 @@ export function Header() {
           {nextIdea ? (
             <Link
               to={`/${nextIdea.path}`}
-              className="flex items-center gap-2 text-muted-foreground transition-colors hover:text-primary"
+              className="text-muted-foreground hover:text-primary flex items-center gap-2 transition-colors"
             >
-              <span className="text-xs uppercase tracking-widest">{nextIdea.title}</span>
+              <span className="text-xs tracking-widest uppercase">
+                {nextIdea.title}
+              </span>
               <ChevronRight className="h-4 w-4" />
             </Link>
           ) : (
-            <span className="pointer-events-none opacity-0 flex items-center gap-2">
+            <span className="pointer-events-none flex items-center gap-2 opacity-0">
               <ChevronRight className="h-4 w-4" />
             </span>
           )}

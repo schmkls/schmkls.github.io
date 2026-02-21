@@ -1,5 +1,27 @@
 @import "tailwindcss";
 
+/*
+Base / Backgrounds
+
+#F5F0E8 — Warm Linen (main background)
+#EDE5D8 — Dry Sand (section alternates, cards)
+
+Text
+
+#3A3632 — Charcoal Driftwood (primary text — warmer than pure black)
+#7A746C — Warm Stone (secondary text, captions)
+
+Accent / Action
+
+#C4713A — Terracotta Ember (links, buttons, highlights)
+#D9935E — Soft Amber (hover states, subtle accents)
+
+Neutral Structure
+
+#B8B0A6 — Greige (borders, dividers)
+#ECEAE6 — Fog (subtle UI elements, code blocks)
+*/
+
 @theme {
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));

@@ -1,4 +1,4 @@
-import { createBrowserRouter, Outlet } from "react-router";
+import { createBrowserRouter, Outlet, Navigate } from "react-router";
 import { ideas } from "./ideas";
 import { Header } from "~/components/Header";
 import Landing from "~/pages/Landing";
@@ -24,6 +24,7 @@ export const router = createBrowserRouter([
         path: idea.path,
         element: <idea.component />,
       })),
+      { path: "*", element: <Navigate to="/" replace /> },
     ],
   },
 ]);
