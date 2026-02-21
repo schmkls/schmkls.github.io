@@ -3,3 +3,8 @@
 
 .cursor
 .cursorrules
+
+# LLM TODO files
+/.todo
+./todo/*
+/todo
