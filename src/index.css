@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-ring: hsl(var(--ring));
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-border, currentcolor);
+  }
+
+  :root {
+    /* #F5F0E8 Warm Linen */
+    --background: 37 36% 94%;
+    /* #3A3632 Charcoal Driftwood */
+    --foreground: 30 8% 21%;
+    /* #EDE5D8 Dry Sand */
+    --muted: 33 32% 89%;
+    /* #7A746C Warm Stone */
+    --muted-foreground: 30 6% 45%;
+    /* #B8B0A6 Greige */
+    --border: 30 8% 68%;
+    --input: 30 8% 68%;
+    /* #C4713A Terracotta Ember */
+    --primary: 24 56% 49%;
+    --primary-foreground: 37 36% 94%;
+    /* #EDE5D8 Dry Sand */
+    --accent: 33 32% 89%;
+    --accent-foreground: 30 8% 21%;
+    /* #F5F0E8 Warm Linen */
+    --popover: 37 36% 94%;
+    --popover-foreground: 30 8% 21%;
+    --ring: 24 56% 49%;
+    --radius: 0.75rem;
+  }
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
