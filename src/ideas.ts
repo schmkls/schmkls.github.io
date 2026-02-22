@@ -1,4 +1,5 @@
 import type { ComponentType } from "react";
+import TinderForExpenses from "~/pages/TinderForExpenses";
 
 interface Idea {
   path: string;
@@ -6,4 +7,10 @@ interface Idea {
   component: ComponentType;
 }
 
-export const ideas: Idea[] = [];
+export const ideas: Idea[] = [
+  {
+    path: "tinder-for-expenses",
+    title: "Tinder for Expenses",
+    component: TinderForExpenses,
+  },
+];
