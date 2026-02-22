@@ -1,6 +1,7 @@
 import type { ComponentType } from "react";
 import TinderForExpenses from "~/pages/TinderForExpenses";
 import VisualizeSocialNetworks from "~/pages/VisualizeSocialNetworks";
+import NetworkAsNetwork from "~/pages/NetworkAsNetwork";
 
 interface Idea {
   path: string;
@@ -18,5 +19,10 @@ export const ideas: Idea[] = [
     path: "visualize-social-networks",
     title: "Visualize Social Networks",
     component: VisualizeSocialNetworks,
+  },
+  {
+    path: "network-as-network",
+    title: "Network as Network",
+    component: NetworkAsNetwork,
   },
 ];
