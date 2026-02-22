@@ -155,11 +155,25 @@ function DemoButton({
   );
 }
 
+function SourceLink({ href, index }: { href: string; index: number }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="align-super text-[10px] opacity-50 hover:opacity-100"
+    >
+      [{index}]
+    </a>
+  );
+}
+
 Card.Title = CardTitle;
 Card.Body = CardBody;
 Post.Card = Card;
 Post.HorizontalLine = HorizontalLine;
 Post.Image = PostImage;
 Post.DemoButton = DemoButton;
+Post.SourceLink = SourceLink;
 
 export default Post;
