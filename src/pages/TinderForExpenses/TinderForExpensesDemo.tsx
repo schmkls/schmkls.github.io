@@ -1,6 +1,8 @@
 import { useState, useRef } from "react";
 import { cn } from "~/lib/utils";
 
+// TODO: Extract the mobile frame into reusable component
+
 type Expense = {
   id: number;
   merchant: string;
@@ -80,6 +82,11 @@ export default function TinderForExpensesDemo() {
     setDragOffset({ x: 0, y: 0 });
   }
 
+  function handlePointerCancel() {
+    setIsDragging(false);
+    setDragOffset({ x: 0, y: 0 });
+  }
+
   const rotation = dragOffset.x * 0.08;
   const showWorthIt = dragOffset.x > 40;
   const showNotWorthIt = dragOffset.x < -40;
@@ -88,9 +95,8 @@ export default function TinderForExpensesDemo() {
     <div className="flex min-h-full items-center justify-center p-8">
       <div className="relative flex h-[560px] w-[300px] flex-col overflow-hidden rounded-[2.5rem] border-[3px] border-zinc-800 bg-white shadow-2xl dark:border-zinc-600 dark:bg-zinc-900">
         {/* Status bar */}
-        <div className="flex shrink-0 justify-between px-5 pb-1 pt-3 text-[10px] text-zinc-400">
+        <div className="flex shrink-0 justify-center p-2 text-xs text-zinc-400">
           <span>9:41</span>
-          <span>●●●</span>
         </div>
 
         {/* App title */}
@@ -134,10 +140,12 @@ export default function TinderForExpensesDemo() {
                     style={{
                       transform: `translateX(${dragOffset.x}px) translateY(${dragOffset.y * 0.3}px) rotate(${rotation}deg)`,
                       transition: isDragging ? "none" : "transform 0.3s ease",
+                      touchAction: "none",
                     }}
                     onPointerDown={handlePointerDown}
                     onPointerMove={handlePointerMove}
                     onPointerUp={handlePointerUp}
+                    onPointerCancel={handlePointerCancel}
                   >
                     <div className="relative overflow-hidden rounded-2xl border border-zinc-100 bg-white p-4 shadow-lg dark:border-zinc-700 dark:bg-zinc-800">
                       {/* Worth it overlay */}
@@ -237,7 +245,7 @@ export default function TinderForExpensesDemo() {
               <p className="text-[11px] font-medium text-zinc-500 dark:text-zinc-400">
                 Monthly breakdown
               </p>
-              <div className="flex gap-3 text-[10px] text-zinc-500 dark:text-zinc-400">
+              <div className="flex gap-3 text-m text-zinc-500 dark:text-zinc-400">
                 <span className="flex items-center gap-1">
                   <span className="inline-block h-2 w-2 rounded-sm bg-green-500" />
                   Worth it
