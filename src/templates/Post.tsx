@@ -113,6 +113,12 @@ function CardTitle({ children }: { children: ReactNode }) {
   return <h2 className="text-foreground text-lg font-semibold">{children}</h2>;
 }
 
+function CardBody({ children }: { children: ReactNode }) {
+  return (
+    <p className="text-muted-foreground text-sm leading-relaxed">{children}</p>
+  );
+}
+
 function HorizontalLine() {
   return (
     <div className="via-border h-px bg-linear-to-r from-transparent to-transparent" />
@@ -148,6 +154,7 @@ function DemoButton({
 }
 
 Card.Title = CardTitle;
+Card.Body = CardBody;
 Post.Card = Card;
 Post.HorizontalLine = HorizontalLine;
 Post.Image = PostImage;
