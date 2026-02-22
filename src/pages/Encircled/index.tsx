@@ -44,7 +44,7 @@ export default function Encircled() {
           <i>Territory</i>.
           <br />
           <br />
-          You earn XP every time you capture someone else's <i>Home</i>. XP can
+          You earn XP every time you capture someone else&apos;s <i>Home</i>. XP can
           be spent to protect a <i>Home</i>, forcing any would-be capturer to
           enclose a minimum area in order to claim it.
           <br />

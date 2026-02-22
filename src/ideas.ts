@@ -4,6 +4,7 @@ import VisualizeSocialNetworks from "~/pages/VisualizeSocialNetworks";
 import NetworkAsNetwork from "~/pages/NetworkAsNetwork";
 import MusicGuessr from "~/pages/MusicGuessr";
 import Encircled from "~/pages/Encircled";
+import FindToWatch from "~/pages/FindToWatch";
 
 interface Idea {
   path: string;
@@ -36,5 +37,10 @@ export const ideas: Idea[] = [
     path: "encircled",
     title: "Encircled",
     component: Encircled,
+  },
+  {
+    path: "find-to-watch",
+    title: "Find to Watch",
+    component: FindToWatch,
   },
 ];
