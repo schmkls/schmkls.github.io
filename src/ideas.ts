@@ -3,6 +3,7 @@ import TinderForExpenses from "~/pages/TinderForExpenses";
 import VisualizeSocialNetworks from "~/pages/VisualizeSocialNetworks";
 import NetworkAsNetwork from "~/pages/NetworkAsNetwork";
 import MusicGuessr from "~/pages/MusicGuessr";
+import Encircled from "~/pages/Encircled";
 
 interface Idea {
   path: string;
@@ -30,5 +31,10 @@ export const ideas: Idea[] = [
     path: "music-guessr",
     title: "MusicGuessr",
     component: MusicGuessr,
+  },
+  {
+    path: "encircled",
+    title: "Encircled",
+    component: Encircled,
   },
 ];
