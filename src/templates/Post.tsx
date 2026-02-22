@@ -70,7 +70,7 @@ function DemoOverlay({
         </span>
         <button
           onClick={handleClose}
-          className="text-muted-foreground hover:bg-muted hover:text-foreground rounded-md p-1 transition-colors focus:outline-none"
+          className="text-muted-foreground hover:bg-muted hover:text-foreground rounded-md p-2 transition-colors focus:outline-none cursor-pointer"
           aria-label="Close demo"
         >
           <X className="h-4 w-4" />
