@@ -52,42 +52,41 @@ export default function NetworkAsNetwork() {
         </Post.Card.Body>
 
         <Post.Card>
-        <Post.Card.Title>The Network View</Post.Card.Title>
-        <Post.Card.Body>
-          Your profile is a node at the center. People you interact with are
-          nodes around you, organized into natural clusters — your Formula 1
-          community, your close friends, a professional group. Edges between
-          nodes reflect interaction strength and direction: wider where
-          interaction is heavier, asymmetric where it is one-sided.
-          <br />
-          <br />
-          Tap any node to re-center the graph around that person&apos;s network.
-          Explore their clusters, discover adjacent communities, navigate back.
-          The graph becomes a living, explorable map of your social world.
-        </Post.Card.Body>
-      </Post.Card>
+          <Post.Card.Title>The Network View</Post.Card.Title>
+          <Post.Card.Body>
+            Your profile is a node at the center. People you interact with are
+            nodes around you, organized into natural clusters — your Formula 1
+            community, your close friends, a professional group. Edges between
+            nodes reflect interaction strength and direction: wider where
+            interaction is heavier, asymmetric where it is one-sided.
+            <br />
+            <br />
+            Tap any node to re-center the graph around that person&apos;s
+            network. Explore their clusters, discover adjacent communities,
+            navigate back. The graph becomes a living, explorable map of your
+            social world.
+          </Post.Card.Body>
+        </Post.Card>
 
-      <Post.Card>
-        <Post.Card.Title>The Feed View</Post.Card.Title>
-        <Post.Card.Body>
-          Familiar to anyone who has used TikTok or Instagram — but with one
-          critical difference: above every post is a small, expandable
-          visualization showing exactly <em>why</em> you are seeing it: which
-          nodes and edges connect you to this content. Transparency is not
-          buried in a settings page. It is built into every post.
-        </Post.Card.Body>
-      </Post.Card>
+        <Post.Card>
+          <Post.Card.Title>The Feed View</Post.Card.Title>
+          <Post.Card.Body>
+            Familiar to anyone who has used TikTok or Instagram — but with one
+            critical difference: above every post is a small, expandable
+            visualization showing exactly <em>why</em> you are seeing it: which
+            nodes and edges connect you to this content. Transparency is not
+            buried in a settings page. It is built into every post.
+          </Post.Card.Body>
+        </Post.Card>
 
-      <Post.Card>
-        <Post.Card.Title>The Profile View</Post.Card.Title>
-        <Post.Card.Body>
-          Standard profile functionality: posts (images, video, captions), with
-          the user&apos;s position in their own network visible.
-        </Post.Card.Body>
+        <Post.Card>
+          <Post.Card.Title>The Profile View</Post.Card.Title>
+          <Post.Card.Body>
+            Standard profile functionality: posts (images, video, captions),
+            with the user&apos;s position in their own network visible.
+          </Post.Card.Body>
+        </Post.Card>
       </Post.Card>
-      </Post.Card>
-
-      
 
       <Post.Card>
         <Post.Card.Title>Why Now</Post.Card.Title>
