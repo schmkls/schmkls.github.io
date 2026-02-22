@@ -115,7 +115,7 @@ function CardTitle({ children }: { children: ReactNode }) {
 
 function CardBody({ children }: { children: ReactNode }) {
   return (
-    <p className="text-muted-foreground text-sm leading-relaxed">{children}</p>
+    <div className="text-muted-foreground text-sm leading-relaxed">{children}</div>
   );
 }
 
