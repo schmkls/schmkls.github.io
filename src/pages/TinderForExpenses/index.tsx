@@ -5,25 +5,26 @@ export default function TinderForExpenses() {
   return (
     <Post>
       <Post.Card.Body>
-      <i>A fun way to review and improve your spending habits</i>
+        <i>A fun way to review and improve your spending habits</i>
       </Post.Card.Body>
       <Post.Card>
         <Post.Card.Title>Problem</Post.Card.Title>
         <Post.Card.Body>
-          Tracking expenses is easy — reviewing them is hard and boring. Services like Anyfin and most banks offer categorized spending
+          Tracking expenses is easy — reviewing them is hard and boring.
+          Services like Anyfin and most banks offer categorized spending
           overviews, but they rarely help you reflect on whether you made good
           choices. Was that night out worth it? Was the course literature
           overpriced? Most tools give you data but no real insight.
         </Post.Card.Body>
       </Post.Card>
 
-      <Post.Card> 
+      <Post.Card>
         <Post.Card.Title>Solution</Post.Card.Title>
         <Post.Card.Body>
-          Gamified expense reviews. <br/>
-          Each expense appears as a card — similar to
-          Tinder — displaying information such as:
-          <ul className="list-inside p-2 list-disc">
+          Gamified expense reviews. <br />
+          Each expense appears as a card — similar to Tinder — displaying
+          information such as:
+          <ul className="list-inside list-disc p-2">
             <li>Amount spent</li>
             <li>Category</li>
             <li>Date</li>
@@ -37,7 +38,7 @@ export default function TinderForExpenses() {
           You swipe through your expenses and sort them into categories. The
           default categories are <em>Worth it</em> and <em>Not worth it</em>,
           but you can create your own. Some suggestions:
-          <ul className="list-inside p-2 list-disc">
+          <ul className="list-inside list-disc p-2">
             <li>Regret</li>
             <li>Impulse buy</li>
             <li>Necessary</li>
@@ -72,7 +73,9 @@ export default function TinderForExpenses() {
       </Post.Card>
 
       <Post.Card>
-        <Post.Card.Title>Could this be scoped to grocery shopping?</Post.Card.Title>
+        <Post.Card.Title>
+          Could this be scoped to grocery shopping?
+        </Post.Card.Title>
         <Post.Card.Body>
           Grocery shopping is the most obvious starting point — digital receipts
           are already mainstream. ICA, Coop, and Willys all have apps that

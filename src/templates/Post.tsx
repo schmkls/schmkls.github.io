@@ -70,7 +70,7 @@ function DemoOverlay({
         </span>
         <button
           onClick={handleClose}
-          className="text-muted-foreground hover:bg-muted hover:text-foreground rounded-md p-2 transition-colors focus:outline-none cursor-pointer"
+          className="text-muted-foreground hover:bg-muted hover:text-foreground cursor-pointer rounded-md p-2 transition-colors focus:outline-none"
           aria-label="Close demo"
         >
           <X className="h-4 w-4" />
@@ -115,7 +115,9 @@ function CardTitle({ children }: { children: ReactNode }) {
 
 function CardBody({ children }: { children: ReactNode }) {
   return (
-    <div className="text-muted-foreground text-sm leading-relaxed">{children}</div>
+    <div className="text-muted-foreground text-sm leading-relaxed">
+      {children}
+    </div>
   );
 }
 

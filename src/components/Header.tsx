@@ -54,7 +54,7 @@ export function Header() {
         <Popover open={open} onOpenChange={setOpen}>
           <PopoverTrigger asChild>
             <button className="hover:bg-primary/10 group flex items-center gap-1 rounded-md px-3 py-2 transition-colors focus:outline-none">
-              <span className="text-sm group-hover:text-primary tracking-wider uppercase transition-colors sm:text-2xl sm:tracking-widest">
+              <span className="group-hover:text-primary text-sm tracking-wider uppercase transition-colors sm:text-2xl sm:tracking-widest">
                 {currentIdea ? currentIdea.title : "Schmkls"}
               </span>
               <ChevronsUpDown className="text-muted-foreground group-hover:text-primary h-3 w-3 opacity-50 transition-colors group-hover:opacity-100" />

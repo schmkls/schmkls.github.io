@@ -1,7 +1,6 @@
 import { useState, useRef } from "react";
 import { cn } from "~/lib/utils";
-
-// TODO: Extract the mobile frame into reusable component
+import MobileFrame from "~/components/MobileFrame";
 
 type Expense = {
   id: number;
@@ -93,12 +92,7 @@ export default function TinderForExpensesDemo() {
 
   return (
     <div className="flex min-h-full items-center justify-center p-8">
-      <div className="relative flex h-[560px] w-[300px] flex-col overflow-hidden rounded-[2.5rem] border-[3px] border-zinc-800 bg-white shadow-2xl dark:border-zinc-600 dark:bg-zinc-900">
-        {/* Status bar */}
-        <div className="flex shrink-0 justify-center p-2 text-xs text-zinc-400">
-          <span>9:41</span>
-        </div>
-
+      <MobileFrame>
         {/* App title */}
         <div className="shrink-0 pb-1 text-center">
           <span className="text-[13px] font-semibold text-zinc-800 dark:text-zinc-100">
@@ -245,7 +239,7 @@ export default function TinderForExpensesDemo() {
               <p className="text-[11px] font-medium text-zinc-500 dark:text-zinc-400">
                 Monthly breakdown
               </p>
-              <div className="flex gap-3 text-m text-zinc-500 dark:text-zinc-400">
+              <div className="text-m flex gap-3 text-zinc-500 dark:text-zinc-400">
                 <span className="flex items-center gap-1">
                   <span className="inline-block h-2 w-2 rounded-sm bg-green-500" />
                   Worth it
@@ -258,7 +252,10 @@ export default function TinderForExpensesDemo() {
               <div className="flex flex-col gap-1">
                 <div className="flex h-36 items-end gap-2">
                   {MONTHLY_DATA.map((d) => (
-                    <div key={d.month} className="flex flex-1 items-end gap-0.5">
+                    <div
+                      key={d.month}
+                      className="flex flex-1 items-end gap-0.5"
+                    >
                       <div
                         className="flex-1 rounded-t-sm bg-green-500"
                         style={{
@@ -288,7 +285,7 @@ export default function TinderForExpensesDemo() {
             </div>
           )}
         </div>
-      </div>
+      </MobileFrame>
     </div>
   );
 }
