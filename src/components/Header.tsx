@@ -32,15 +32,15 @@ export function Header() {
 
   return (
     <header className="border-border bg-background sticky top-0 z-10 border-b">
-      <div className="grid h-16 grid-cols-[1fr_auto_1fr] items-center px-8">
+      <div className="grid h-16 grid-cols-[1fr_auto_1fr] items-center px-4 sm:px-8">
         <div className="flex justify-start">
           {prevIdea ? (
             <Link
               to={`/${prevIdea.path}`}
               className="text-muted-foreground hover:text-primary flex items-center gap-2 transition-colors"
             >
-              <ChevronLeft className="h-4 w-4" />
-              <span className="text-xs tracking-widest uppercase">
+              <ChevronLeft className="h-4 w-4 shrink-0" />
+              <span className="hidden text-xs tracking-widest uppercase sm:inline">
                 {prevIdea.title}
               </span>
             </Link>
@@ -54,7 +54,7 @@ export function Header() {
         <Popover open={open} onOpenChange={setOpen}>
           <PopoverTrigger asChild>
             <button className="hover:bg-primary/10 group flex items-center gap-1 rounded-md px-3 py-2 transition-colors focus:outline-none">
-              <span className="text-2xl group-hover:text-primary tracking-widest uppercase transition-colors">
+              <span className="text-sm group-hover:text-primary tracking-wider uppercase transition-colors sm:text-2xl sm:tracking-widest">
                 {currentIdea ? currentIdea.title : "Schmkls"}
               </span>
               <ChevronsUpDown className="text-muted-foreground group-hover:text-primary h-3 w-3 opacity-50 transition-colors group-hover:opacity-100" />
@@ -97,10 +97,10 @@ export function Header() {
               to={`/${nextIdea.path}`}
               className="text-muted-foreground hover:text-primary flex items-center gap-2 transition-colors"
             >
-              <span className="text-xs tracking-widest uppercase">
+              <span className="hidden text-xs tracking-widest uppercase sm:inline">
                 {nextIdea.title}
               </span>
-              <ChevronRight className="h-4 w-4" />
+              <ChevronRight className="h-4 w-4 shrink-0" />
             </Link>
           ) : (
             <span className="pointer-events-none flex items-center gap-2 opacity-0">
