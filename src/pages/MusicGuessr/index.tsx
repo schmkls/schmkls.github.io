@@ -23,8 +23,8 @@ export default function TinderForExpenses() {
       <Post.Card>
         <Post.Card.Title>Feasibility</Post.Card.Title>
         <Post.Card.Body>
-          It should be quite possible to scrape the data from Wikipedia and
-          Spotify.
+          It should be quite possible to scrape the data from Wikipedia. Spotify
+          has a lovely API.
           <br />
           The game has been done quite awesomely at{" "}
           <a

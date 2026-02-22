@@ -6,6 +6,7 @@ import MusicGuessr from "~/pages/MusicGuessr";
 import Encircled from "~/pages/Encircled";
 import FindToWatch from "~/pages/FindToWatch";
 import PokemonIRL from "~/pages/PokemonIRL";
+import EvolutionRace from "~/pages/EvolutionRace";
 
 interface Idea {
   path: string;
@@ -48,5 +49,10 @@ export const ideas: Idea[] = [
     path: "pokemon-irl",
     title: "Pokémon IRL",
     component: PokemonIRL,
+  },
+  {
+    path: "evolution-race",
+    title: "Evolution Race",
+    component: EvolutionRace,
   },
 ];
