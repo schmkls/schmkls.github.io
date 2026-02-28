@@ -53,6 +53,23 @@ export default function Encircled() {
           (worldwide or within the current map view).
         </Post.Card.Body>
       </Post.Card>
+      <Post.Card>
+        <Post.Card.Title>INTVL</Post.Card.Title>
+        <Post.Card.Body>
+          <a
+            href="https://www.intvl.com.au/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary hover:underline"
+          >
+            intvl.com.au
+          </a>{" "}
+          is a very similar game which seems awesome. The target group seems to
+          be runners. It could be interesting to reason about how to make it
+          more engaging for kids — more gamified, making it possible to get a
+          good score without covering large distances in less populated areas.
+        </Post.Card.Body>
+      </Post.Card>
     </Post>
   );
 }
