@@ -1,4 +1,5 @@
 import Post from "~/templates/Post";
+import WeeklyCharsDemo from "./WeeklyCharsDemo";
 
 export default function WeeklyChars() {
   return (
@@ -43,6 +44,10 @@ export default function WeeklyChars() {
           spammy output, more intentional expression, and a way to give people
           you value more voice.
         </Post.Card.Body>
+        <Post.DemoButton
+          title="Try the demo"
+          demoComponent={<WeeklyCharsDemo />}
+        />
       </Post.Card>
     </Post>
   );
