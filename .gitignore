@@ -11,9 +11,10 @@ node_modules/
 # Build output
 dist/
 
-
 /todo
 
-.agents/
+.agents/  
 
 scripts/
+
+tasks/

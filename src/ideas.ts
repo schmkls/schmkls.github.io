@@ -7,6 +7,10 @@ import Encircled from "~/pages/Encircled";
 import FindToWatch from "~/pages/FindToWatch";
 import PokemonIRL from "~/pages/PokemonIRL";
 import EvolutionRace from "~/pages/EvolutionRace";
+import CommunicationTrail from "~/pages/CommunicationTrail";
+import Friction from "~/pages/Friction";
+import ReceiptPoll from "~/pages/ReceiptPoll";
+import WeeklyChars from "~/pages/WeeklyChars";
 
 interface Idea {
   path: string;
@@ -54,5 +58,25 @@ export const ideas: Idea[] = [
     path: "evolution-race",
     title: "Evolution Race",
     component: EvolutionRace,
+  },
+  {
+    path: "communication-trail",
+    title: "Communication Trail",
+    component: CommunicationTrail,
+  },
+  {
+    path: "friction",
+    title: "Friction",
+    component: Friction,
+  },
+  {
+    path: "receipt-poll",
+    title: "Receipt Poll",
+    component: ReceiptPoll,
+  },
+  {
+    path: "weekly-chars",
+    title: "Weekly Chars",
+    component: WeeklyChars,
   },
 ];
