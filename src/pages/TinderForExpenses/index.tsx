@@ -1,12 +1,9 @@
 import Post from "~/templates/Post";
 import TinderForExpensesDemo from "./TinderForExpensesDemo";
 
-export default function TinderForExpenses() {
+export default function TinderForExpenses({ tagline }: { tagline: string }) {
   return (
-    <Post>
-      <Post.Card.Body>
-        <i>A fun way to review and improve your spending habits</i>
-      </Post.Card.Body>
+    <Post tagline={tagline}>
       <Post.Card>
         <Post.Card.Title>Problem</Post.Card.Title>
         <Post.Card.Body>

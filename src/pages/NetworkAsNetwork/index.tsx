@@ -1,12 +1,8 @@
 import Post from "~/templates/Post";
 
-export default function NetworkAsNetwork() {
+export default function NetworkAsNetwork({ tagline }: { tagline: string }) {
   return (
-    <Post>
-      <Post.Card.Body>
-        <i>The transparent social network</i>
-      </Post.Card.Body>
-
+    <Post tagline={tagline}>
       <Post.Card>
         <Post.Card.Title>The Opportunity</Post.Card.Title>
         <Post.Card.Body>

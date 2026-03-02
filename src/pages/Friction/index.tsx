@@ -1,11 +1,8 @@
 import Post from "~/templates/Post";
 
-export default function Friction() {
+export default function Friction({ tagline }: { tagline: string }) {
   return (
-    <Post>
-      <Post.Card.Body>
-        <i>Expose disagreement</i>
-      </Post.Card.Body>
+    <Post tagline={tagline}>
       <Post.Card>
         <Post.Card.Title>Inspiration</Post.Card.Title>
         <Post.Card.Body>

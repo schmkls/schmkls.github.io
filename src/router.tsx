@@ -22,7 +22,7 @@ export const router = createBrowserRouter([
       { index: true, element: <Landing /> },
       ...ideas.map((idea) => ({
         path: idea.path,
-        element: <idea.component />,
+        element: <idea.component tagline={idea.tagline} />,
       })),
       { path: "*", element: <Navigate to="/" replace /> },
     ],

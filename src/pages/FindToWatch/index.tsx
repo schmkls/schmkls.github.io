@@ -1,12 +1,8 @@
 import Post from "~/templates/Post";
 
-export default function FindToWatch() {
+export default function FindToWatch({ tagline }: { tagline: string }) {
   return (
-    <Post>
-      <Post.Card.Body>
-        <i>Spotify Blend for movies</i>
-      </Post.Card.Body>
-
+    <Post tagline={tagline}>
       <Post.Card>
         <Post.Card.Title>Inspiration</Post.Card.Title>
         <Post.Card.Body>

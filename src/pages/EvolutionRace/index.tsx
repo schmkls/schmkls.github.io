@@ -1,14 +1,8 @@
 import Post from "~/templates/Post";
 
-export default function EvolutionRace() {
+export default function EvolutionRace({ tagline }: { tagline: string }) {
   return (
-    <Post>
-      <Post.Card.Body>
-        <i>
-          A multiplayer classroom game where students race through evolution
-        </i>
-      </Post.Card.Body>
-
+    <Post tagline={tagline}>
       <Post.Card>
         <Post.Card.Title>Purpose</Post.Card.Title>
         <Post.Card.Body>

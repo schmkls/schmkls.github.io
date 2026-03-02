@@ -1,12 +1,9 @@
 import Post from "~/templates/Post";
 import WeeklyCharsDemo from "./WeeklyCharsDemo";
 
-export default function WeeklyChars() {
+export default function WeeklyChars({ tagline }: { tagline: string }) {
   return (
-    <Post>
-      <Post.Card.Body>
-        <i>Earn your voice, one character at a time</i>
-      </Post.Card.Body>
+    <Post tagline={tagline}>
       <Post.Card>
         <Post.Card.Title>The Problem</Post.Card.Title>
         <Post.Card.Body>

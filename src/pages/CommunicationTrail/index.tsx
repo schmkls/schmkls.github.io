@@ -1,13 +1,9 @@
 import Post from "~/templates/Post";
 import CommunicationTrailDemo from "./CommunicationTrailDemo";
 
-export default function CommunicationTrail() {
+export default function CommunicationTrail({ tagline }: { tagline: string }) {
   return (
-    <Post>
-      <Post.Card.Body>
-        <i>One shared timeline for every customer interaction</i>
-      </Post.Card.Body>
-
+    <Post tagline={tagline}>
       <Post.Card>
         <Post.Card.Title>Problem</Post.Card.Title>
         <Post.Card.Body>

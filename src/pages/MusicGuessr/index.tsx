@@ -1,11 +1,8 @@
 import Post from "~/templates/Post";
 
-export default function TinderForExpenses() {
+export default function MusicGuessr({ tagline }: { tagline: string }) {
   return (
-    <Post>
-      <Post.Card.Body>
-        <i>Geoguessr for music lovers</i>
-      </Post.Card.Body>
+    <Post tagline={tagline}>
       <Post.Card>
         <Post.Card.Title>The game</Post.Card.Title>
         <Post.Card.Body>

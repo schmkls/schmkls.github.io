@@ -1,12 +1,12 @@
 import Post from "~/templates/Post";
 
-export default function VisualizeSocialNetworks() {
+export default function VisualizeSocialNetworks({
+  tagline,
+}: {
+  tagline: string;
+}) {
   return (
-    <Post>
-      <Post.Card.Body>
-        <i>See who you know — and how they&apos;re connected</i>
-      </Post.Card.Body>
-
+    <Post tagline={tagline}>
       <Post.Card>
         <Post.Card.Title>Problem</Post.Card.Title>
         <Post.Card.Body>

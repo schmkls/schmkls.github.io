@@ -22,9 +22,9 @@ function usePostContext() {
   return ctx;
 }
 
-type ActiveDemo = { title: string; component: ReactNode };
+export type ActiveDemo = { title: string; component: ReactNode };
 
-function DemoOverlay({
+export function DemoOverlay({
   demo,
   onClose,
 }: {
@@ -82,7 +82,7 @@ function DemoOverlay({
   );
 }
 
-function Post({ children }: { children: ReactNode }) {
+function Post({ tagline, children }: { tagline: string; children: ReactNode }) {
   const [activeDemo, setActiveDemo] = useState<ActiveDemo | null>(null);
 
   return (
@@ -92,6 +92,9 @@ function Post({ children }: { children: ReactNode }) {
       }}
     >
       <article className="mx-auto flex max-w-4xl flex-col gap-8 px-4 py-12">
+        <CardBody>
+          <i>{tagline}</i>
+        </CardBody>
         {children}
       </article>
       {activeDemo && (

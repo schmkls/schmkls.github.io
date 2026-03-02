@@ -1,11 +1,8 @@
 import Post from "~/templates/Post";
 
-export default function ReceiptPoll() {
+export default function ReceiptPoll({ tagline }: { tagline: string }) {
   return (
-    <Post>
-      <Post.Card.Body>
-        <i>More drinks = better music</i>
-      </Post.Card.Body>
+    <Post tagline={tagline}>
       <Post.Card>
         <Post.Card.Title>The Problem</Post.Card.Title>
         <Post.Card.Body>

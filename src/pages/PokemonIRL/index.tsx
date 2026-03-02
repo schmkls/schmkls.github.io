@@ -1,12 +1,8 @@
 import Post from "~/templates/Post";
 
-export default function PokemonIRL() {
+export default function PokemonIRL({ tagline }: { tagline: string }) {
   return (
-    <Post>
-      <Post.Card.Body>
-        <i>Catch &lsquo;em all — nature edition</i>
-      </Post.Card.Body>
-
+    <Post tagline={tagline}>
       <Post.Card>
         <Post.Card.Title>Inspiration</Post.Card.Title>
         <Post.Card.Body>
