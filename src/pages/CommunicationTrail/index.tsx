@@ -1,4 +1,5 @@
 import Post from "~/templates/Post";
+import CommunicationTrailDemo from "./CommunicationTrailDemo";
 
 export default function CommunicationTrail() {
   return (
@@ -76,7 +77,12 @@ export default function CommunicationTrail() {
             timeline to visualize value realization alongside communication.
           </i>
         </Post.Card.Body>
+        <Post.DemoButton
+          title="Try the demo"
+          demoComponent={<CommunicationTrailDemo />}
+        />
       </Post.Card>
+
       <Post.Card>
         <Post.Card.Title>Feasability</Post.Card.Title>
         <Post.Card.Body>

@@ -4,11 +4,7 @@ export default function Encircled() {
   return (
     <Post>
       <Post.Card.Body>
-        <i>Simple is fun - a geolocation game</i>
-        <br />
-        <i>The next Pokémon GO</i>
-        <br />
-        <i>Get outside, capture your friends</i>
+        <i>Go outside and circle your friends</i>
       </Post.Card.Body>
 
       <Post.Card>
