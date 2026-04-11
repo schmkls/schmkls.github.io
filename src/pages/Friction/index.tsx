@@ -1,4 +1,5 @@
 import Post from "~/templates/Post";
+import FrictionDemo from "./FrictionDemo/FrictionDemo";
 
 export default function Friction({ tagline }: { tagline: string }) {
   return (
@@ -119,6 +120,10 @@ export default function Friction({ tagline }: { tagline: string }) {
         <Post.Card.Body>
           Friction is an experiment in making that possible at scale.
         </Post.Card.Body>
+        <Post.DemoButton
+          title="Try the demo"
+          demoComponent={<FrictionDemo />}
+        />
       </Post.Card>
     </Post>
   );

@@ -9,6 +9,7 @@ import PokemonIRL from "~/pages/PokemonIRL";
 import EvolutionRace from "~/pages/EvolutionRace";
 import CommunicationTrail from "~/pages/CommunicationTrail";
 import Friction from "~/pages/Friction";
+import FrictionDemo from "~/pages/Friction/FrictionDemo/FrictionDemo";
 import ReceiptPoll from "~/pages/ReceiptPoll";
 import WeeklyChars from "~/pages/WeeklyChars";
 import TinderForExpensesDemo from "~/pages/TinderForExpenses/TinderForExpensesDemo";
@@ -86,6 +87,7 @@ export const ideas: Idea[] = [
     title: "Friction",
     tagline: "Expose disagreement",
     component: Friction,
+    demoComponent: FrictionDemo,
   },
   {
     path: "receipt-poll",
