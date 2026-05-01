@@ -11,6 +11,9 @@ node_modules/
 # Build output
 dist/
 
+# ESLint cache
+.eslintcache
+
 /todo
 
 .agents/  

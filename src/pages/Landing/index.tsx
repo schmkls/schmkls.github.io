@@ -21,7 +21,7 @@ export default function Landing() {
             <span className="text-foreground text-lg font-semibold group-hover:underline">
               {idea.title}
             </span>
-            <p className="text-muted-foreground text-sm leading-relaxed italic">
+            <p className="text-muted-foreground text-sm/relaxed italic">
               {idea.tagline}
             </p>
             {idea.demoComponent && (

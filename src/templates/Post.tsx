@@ -60,7 +60,7 @@ export function DemoOverlay({
   return createPortal(
     <div
       className={cn(
-        "bg-background fixed inset-0 z-50 flex flex-col transition-all duration-300",
+        `bg-background fixed inset-0 z-50 flex flex-col transition-all duration-300`,
         visible ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0",
       )}
     >
@@ -73,7 +73,7 @@ export function DemoOverlay({
           className="text-muted-foreground hover:bg-muted hover:text-foreground cursor-pointer rounded-md p-2 transition-colors focus:outline-none"
           aria-label="Close demo"
         >
-          <X className="h-4 w-4" />
+          <X className="size-4" />
         </button>
       </div>
       <div className="min-h-0 flex-1 overflow-auto">{demo.component}</div>
@@ -118,9 +118,7 @@ function CardTitle({ children }: { children: ReactNode }) {
 
 function CardBody({ children }: { children: ReactNode }) {
   return (
-    <div className="text-muted-foreground text-sm leading-relaxed">
-      {children}
-    </div>
+    <div className="text-muted-foreground text-sm/relaxed">{children}</div>
   );
 }
 
