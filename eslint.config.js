@@ -1,14 +1,16 @@
 import eslint from "@eslint/js";
 import { defineConfig } from "eslint/config";
+import betterTailwindcss from "eslint-plugin-better-tailwindcss";
 import reactPlugin from "eslint-plugin-react";
 import reactHooksPlugin from "eslint-plugin-react-hooks";
 import reactRefreshPlugin from "eslint-plugin-react-refresh";
+import tailwindPaletteGuard from "eslint-plugin-tailwind-palette-guard";
 import tseslint from "typescript-eslint";
 
 export default defineConfig([
   {
     files: ["**/*.{tsx,ts,jsx,js}"],
-    ignores: ["dist/**", "node_modules/**"],
+    ignores: ["dist/**", "node_modules/**", "prettier.config.js"],
     extends: [eslint.configs.recommended, tseslint.configs.recommended],
   },
   {
@@ -31,6 +33,8 @@ export default defineConfig([
       reactPlugin.configs.flat.recommended,
       // @ts-expect-error type mismatch
       reactPlugin.configs.flat["jsx-runtime"],
+      // @ts-expect-error type mismatch
+      tailwindPaletteGuard.configs.strict,
     ],
     rules: {
       "react/prop-types": "off",
@@ -54,6 +58,33 @@ export default defineConfig([
         "warn",
         { props: "never", children: "never", propElementValues: "always" },
       ],
+      "tailwind-palette-guard/no-palette-colors": [
+        "warn",
+        {
+          checkAllStrings: true,
+          allowedFiles: ["**/*Demo*/**", "**/*Demo*"],
+        },
+      ],
+    },
+  },
+  {
+    files: ["src/**/*.{tsx,ts}"],
+    plugins: { "better-tailwindcss": betterTailwindcss },
+    settings: {
+      "better-tailwindcss": {
+        entryPoint: "src/index.css",
+      },
+    },
+    rules: {
+      "better-tailwindcss/no-unknown-classes": [
+        "warn",
+        { detectComponentClasses: true },
+      ],
+      "better-tailwindcss/no-conflicting-classes": "warn",
+      "better-tailwindcss/enforce-shorthand-classes": "warn",
+      "better-tailwindcss/no-duplicate-classes": "warn",
+      "better-tailwindcss/no-deprecated-classes": "warn",
+      "better-tailwindcss/no-unnecessary-whitespace": "warn",
     },
   },
 ]);

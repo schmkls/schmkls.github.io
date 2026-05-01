@@ -118,10 +118,10 @@ function PostCard({
             </button>
             <span
               className={cn(
-                "rounded px-1 py-0.5 text-[10px] font-medium",
+                "rounded-sm px-1 py-0.5 text-[10px] font-medium",
                 c.type === "agree"
-                  ? "bg-green-500/15 text-green-600 dark:text-green-400"
-                  : "bg-red-500/15 text-red-600 dark:text-red-400",
+                  ? `bg-green-500/15 text-green-600 dark:text-green-400`
+                  : `bg-red-500/15 text-red-600 dark:text-red-400`,
               )}
             >
               {c.type === "agree" ? "Agree" : "Disagree"}
@@ -148,7 +148,7 @@ function PostCard({
       ? seedUsers.find((u) => u.id === disagreeComment.authorId)
       : null;
     return (
-      <div key={d.id} className="border-border rounded border p-2">
+      <div key={d.id} className="border-border rounded-sm border p-2">
         <div className="text-muted-foreground mb-1.5 text-[10px] font-medium uppercase">
           {d.status === "ongoing"
             ? "🔴 Ongoing"
@@ -162,7 +162,7 @@ function PostCard({
                 <span className="text-foreground text-xs font-medium">
                   {agreeUser.name}
                 </span>
-                <span className="rounded bg-green-500/15 px-1 py-0.5 text-[10px] font-medium text-green-600 dark:text-green-400">
+                <span className="rounded-sm bg-green-500/15 px-1 py-0.5 text-[10px] font-medium text-green-600 dark:text-green-400">
                   Agree
                 </span>
               </div>
@@ -180,7 +180,7 @@ function PostCard({
                 <span className="text-foreground text-xs font-medium">
                   {disagreeUser.name}
                 </span>
-                <span className="rounded bg-red-500/15 px-1 py-0.5 text-[10px] font-medium text-red-600 dark:text-red-400">
+                <span className="rounded-sm bg-red-500/15 px-1 py-0.5 text-[10px] font-medium text-red-600 dark:text-red-400">
                   Disagree
                 </span>
               </div>
@@ -190,7 +190,7 @@ function PostCard({
             </div>
           </div>
         )}
-        <button className="bg-foreground/10 text-foreground hover:bg-foreground/20 mt-1.5 w-full cursor-pointer rounded px-2 py-1 text-[10px] font-medium transition-colors">
+        <button className="bg-foreground/10 text-foreground hover:bg-foreground/20 mt-1.5 w-full cursor-pointer rounded-sm px-2 py-1 text-[10px] font-medium transition-colors">
           {d.status === "ongoing" ? "Watch" : "Get notified"}
         </button>
       </div>
@@ -244,7 +244,7 @@ function PostCard({
               "relative cursor-pointer px-3 py-1.5 text-xs transition-colors",
               activeTab === tab
                 ? "text-foreground font-medium"
-                : "text-muted-foreground hover:text-foreground",
+                : `text-muted-foreground hover:text-foreground`,
             )}
           >
             {tab === "comments" ? "Comments" : "Debates on this post"}
@@ -359,10 +359,10 @@ function ExpandedPostView({
               </button>
               <span
                 className={cn(
-                  "rounded px-1 py-0.5 text-[10px] font-medium",
+                  "rounded-sm px-1 py-0.5 text-[10px] font-medium",
                   c.type === "agree"
-                    ? "bg-green-500/15 text-green-600 dark:text-green-400"
-                    : "bg-red-500/15 text-red-600 dark:text-red-400",
+                    ? `bg-green-500/15 text-green-600 dark:text-green-400`
+                    : `bg-red-500/15 text-red-600 dark:text-red-400`,
                 )}
               >
                 {c.type === "agree" ? "Agree" : "Disagree"}
@@ -378,11 +378,11 @@ function ExpandedPostView({
                 className={cn(
                   "flex cursor-pointer items-center gap-1 transition-colors",
                   userVotes[c.id] === "up"
-                    ? "text-green-600 dark:text-green-400"
-                    : "text-muted-foreground hover:text-green-600 dark:hover:text-green-400",
+                    ? `text-green-600 dark:text-green-400`
+                    : `text-muted-foreground hover:text-green-600 dark:hover:text-green-400`,
                 )}
               >
-                <ThumbsUp className="h-3 w-3" />
+                <ThumbsUp className="size-3" />
                 {c.upvotes}
               </button>
               <button
@@ -390,11 +390,11 @@ function ExpandedPostView({
                 className={cn(
                   "flex cursor-pointer items-center gap-1 transition-colors",
                   userVotes[c.id] === "down"
-                    ? "text-red-600 dark:text-red-400"
-                    : "text-muted-foreground hover:text-red-600 dark:hover:text-red-400",
+                    ? `text-red-600 dark:text-red-400`
+                    : `text-muted-foreground hover:text-red-600 dark:hover:text-red-400`,
                 )}
               >
-                <ThumbsDown className="h-3 w-3" />
+                <ThumbsDown className="size-3" />
                 {c.downvotes}
               </button>
             </div>
@@ -428,7 +428,7 @@ function ExpandedPostView({
                 <span className="text-foreground text-xs font-medium">
                   {agreeUser.name}
                 </span>
-                <span className="rounded bg-green-500/15 px-1 py-0.5 text-[10px] font-medium text-green-600 dark:text-green-400">
+                <span className="rounded-sm bg-green-500/15 px-1 py-0.5 text-[10px] font-medium text-green-600 dark:text-green-400">
                   Agree
                 </span>
               </div>
@@ -446,7 +446,7 @@ function ExpandedPostView({
                 <span className="text-foreground text-xs font-medium">
                   {disagreeUser.name}
                 </span>
-                <span className="rounded bg-red-500/15 px-1 py-0.5 text-[10px] font-medium text-red-600 dark:text-red-400">
+                <span className="rounded-sm bg-red-500/15 px-1 py-0.5 text-[10px] font-medium text-red-600 dark:text-red-400">
                   Disagree
                 </span>
               </div>
@@ -471,7 +471,7 @@ function ExpandedPostView({
           onClick={() => window.history.back()}
           className="text-foreground"
         >
-          <ArrowLeft className="h-5 w-5" />
+          <ArrowLeft className="size-5" />
         </button>
         <span className="text-foreground text-sm font-medium">Post</span>
       </div>
@@ -514,7 +514,7 @@ function ExpandedPostView({
               "relative cursor-pointer px-3 py-2 text-xs transition-colors",
               activeTab === tab
                 ? "text-foreground font-medium"
-                : "text-muted-foreground hover:text-foreground",
+                : `text-muted-foreground hover:text-foreground`,
             )}
           >
             {tab === "comments" ? "Comments" : "Debates on this post"}
@@ -633,7 +633,7 @@ function ProfileView({
             onClick={() => window.history.back()}
             className="text-foreground"
           >
-            <ArrowLeft className="h-5 w-5" />
+            <ArrowLeft className="size-5" />
           </button>
           <span className="text-foreground text-sm font-medium">Profile</span>
         </div>
@@ -653,17 +653,17 @@ function ProfileView({
           {
             label: "Posts",
             count: userPosts.length,
-            icon: <Pencil className="h-3.5 w-3.5" />,
+            icon: <Pencil className="size-3.5" />,
           },
           {
             label: "Comments",
             count: userComments.length,
-            icon: <MessageSquare className="h-3.5 w-3.5" />,
+            icon: <MessageSquare className="size-3.5" />,
           },
           {
             label: "Debates",
             count: userDebates.length,
-            icon: <Swords className="h-3.5 w-3.5" />,
+            icon: <Swords className="size-3.5" />,
           },
         ].map((s) => (
           <div
@@ -701,8 +701,8 @@ function ProfileView({
                 }
                 className="border-border flex w-full items-start gap-2.5 border-b px-3 py-2.5 text-left"
               >
-                <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-500/15 text-blue-600 dark:text-blue-400">
-                  <Pencil className="h-3 w-3" />
+                <div className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full bg-blue-500/15 text-blue-600 dark:text-blue-400">
+                  <Pencil className="size-3" />
                 </div>
                 <div className="min-w-0 flex-1">
                   <div className="flex items-baseline gap-1.5">
@@ -733,13 +733,13 @@ function ProfileView({
               >
                 <div
                   className={cn(
-                    "mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full",
+                    `mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full`,
                     ev.comment.type === "agree"
-                      ? "bg-green-500/15 text-green-600 dark:text-green-400"
-                      : "bg-red-500/15 text-red-600 dark:text-red-400",
+                      ? `bg-green-500/15 text-green-600 dark:text-green-400`
+                      : `bg-red-500/15 text-red-600 dark:text-red-400`,
                   )}
                 >
-                  <MessageSquare className="h-3 w-3" />
+                  <MessageSquare className="size-3" />
                 </div>
                 <div className="min-w-0 flex-1">
                   <div className="flex items-baseline gap-1.5">
@@ -779,8 +779,8 @@ function ProfileView({
               }
               className="border-border flex w-full items-start gap-2.5 border-b px-3 py-2.5 text-left"
             >
-              <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-purple-500/15 text-purple-600 dark:text-purple-400">
-                <Swords className="h-3 w-3" />
+              <div className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full bg-purple-500/15 text-purple-600 dark:text-purple-400">
+                <Swords className="size-3" />
               </div>
               <div className="min-w-0 flex-1">
                 <div className="flex items-baseline gap-1.5">
@@ -789,10 +789,10 @@ function ProfileView({
                   </span>
                   <span
                     className={cn(
-                      "rounded px-1 py-0.5 text-[10px] font-medium",
+                      "rounded-sm px-1 py-0.5 text-[10px] font-medium",
                       ev.debate.status === "ongoing"
-                        ? "bg-red-500/15 text-red-600 dark:text-red-400"
-                        : "bg-yellow-500/15 text-yellow-600 dark:text-yellow-400",
+                        ? `bg-red-500/15 text-red-600 dark:text-red-400`
+                        : `bg-yellow-500/15 text-yellow-600 dark:text-yellow-400`,
                     )}
                   >
                     {ev.debate.status === "ongoing" ? "Ongoing" : "Scheduled"}
@@ -833,9 +833,9 @@ function DebatesView({
         onClick={() => setShowNotifications((prev) => !prev)}
         className="text-foreground absolute top-3 right-3 z-10 cursor-pointer"
       >
-        <Bell className="h-5 w-5" />
+        <Bell className="size-5" />
         {notifCount > 0 && (
-          <span className="absolute -top-1.5 -right-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[10px] font-bold text-white">
+          <span className="absolute -top-1.5 -right-1.5 flex size-4 items-center justify-center rounded-full bg-red-500 text-[10px] font-bold text-white">
             {notifCount}
           </span>
         )}
@@ -848,7 +848,7 @@ function DebatesView({
             className="fixed inset-0 z-10"
             onClick={() => setShowNotifications(false)}
           />
-          <div className="bg-background border-border absolute top-10 right-3 z-20 w-72 rounded-lg border shadow-lg">
+          <div className="border-border bg-background absolute top-10 right-3 z-20 w-72 rounded-lg border shadow-lg">
             <div className="border-border border-b px-3 py-2">
               <span className="text-foreground text-sm font-medium">
                 Notifications
@@ -874,7 +874,7 @@ function DebatesView({
                         {n.buttons.map((b) => (
                           <button
                             key={b.label}
-                            className="bg-foreground/10 text-foreground hover:bg-foreground/20 cursor-pointer rounded px-2 py-1 text-[10px] font-medium transition-colors"
+                            className="bg-foreground/10 text-foreground hover:bg-foreground/20 cursor-pointer rounded-sm px-2 py-1 text-[10px] font-medium transition-colors"
                           >
                             {b.label}
                           </button>
@@ -943,7 +943,7 @@ function DebatesView({
                       <span className="text-foreground text-xs font-medium">
                         {agreeUser.name}
                       </span>
-                      <span className="rounded bg-green-500/15 px-1 py-0.5 text-[10px] font-medium text-green-600 dark:text-green-400">
+                      <span className="rounded-sm bg-green-500/15 px-1 py-0.5 text-[10px] font-medium text-green-600 dark:text-green-400">
                         Agree
                       </span>
                     </div>
@@ -955,7 +955,7 @@ function DebatesView({
                       <span className="text-foreground text-xs font-medium">
                         {disagreeUser.name}
                       </span>
-                      <span className="rounded bg-red-500/15 px-1 py-0.5 text-[10px] font-medium text-red-600 dark:text-red-400">
+                      <span className="rounded-sm bg-red-500/15 px-1 py-0.5 text-[10px] font-medium text-red-600 dark:text-red-400">
                         Disagree
                       </span>
                     </div>
@@ -972,7 +972,7 @@ function DebatesView({
                     <span className="text-foreground text-sm font-medium">
                       {agreeUser?.name}
                     </span>
-                    <span className="rounded bg-green-500/15 px-1.5 py-0.5 text-[10px] font-medium text-green-600 dark:text-green-400">
+                    <span className="rounded-sm bg-green-500/15 px-1.5 py-0.5 text-[10px] font-medium text-green-600 dark:text-green-400">
                       Agree
                     </span>
                   </div>
@@ -985,7 +985,7 @@ function DebatesView({
                     <span className="text-foreground text-sm font-medium">
                       {disagreeUser?.name}
                     </span>
-                    <span className="rounded bg-red-500/15 px-1.5 py-0.5 text-[10px] font-medium text-red-600 dark:text-red-400">
+                    <span className="rounded-sm bg-red-500/15 px-1.5 py-0.5 text-[10px] font-medium text-red-600 dark:text-red-400">
                       Disagree
                     </span>
                   </div>
@@ -1152,10 +1152,10 @@ export default function FrictionDemo() {
                 key={t.key}
                 onClick={() => navigate({ tab: "feed", sub: t.key })}
                 className={cn(
-                  "relative flex-1 cursor-pointer py-2.5 text-center text-sm transition-colors",
+                  `relative flex-1 cursor-pointer py-2.5 text-center text-sm transition-colors`,
                   activeSub === t.key
                     ? "text-foreground font-medium"
-                    : "text-muted-foreground hover:text-foreground",
+                    : `text-muted-foreground hover:text-foreground`,
                 )}
               >
                 {t.label}
@@ -1201,7 +1201,7 @@ export default function FrictionDemo() {
   };
 
   return (
-    <div className="bg-background mx-auto flex h-full w-full max-w-md flex-col">
+    <div className="bg-background mx-auto flex size-full max-w-md flex-col">
       <div className="flex-1 overflow-y-auto">{renderContent()}</div>
 
       {/* Bottom tab bar */}
@@ -1209,25 +1209,25 @@ export default function FrictionDemo() {
         <button
           onClick={() => navigate({ tab: "feed", sub: "trending" })}
           className={cn(
-            "flex flex-1 cursor-pointer flex-col items-center gap-1 py-3 text-xs transition-colors",
+            `flex flex-1 cursor-pointer flex-col items-center gap-1 py-3 text-xs transition-colors`,
             route.tab === "feed"
               ? "text-foreground"
-              : "text-muted-foreground hover:text-foreground",
+              : `text-muted-foreground hover:text-foreground`,
           )}
         >
-          <Flame className="h-5 w-5" />
+          <Flame className="size-5" />
           Friction
         </button>
         <button
           onClick={() => navigate({ tab: "debates" })}
           className={cn(
-            "flex flex-1 cursor-pointer flex-col items-center gap-1 py-3 text-xs transition-colors",
+            `flex flex-1 cursor-pointer flex-col items-center gap-1 py-3 text-xs transition-colors`,
             route.tab === "debates"
               ? "text-foreground"
-              : "text-muted-foreground hover:text-foreground",
+              : `text-muted-foreground hover:text-foreground`,
           )}
         >
-          <Swords className="h-5 w-5" />
+          <Swords className="size-5" />
           Debates
         </button>
       </div>

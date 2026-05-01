@@ -24,7 +24,7 @@ function ReceivedCharacters({ chars }: { chars: Record<string, number> }) {
       {entries.map(([char, count]) => (
         <span
           key={char}
-          className="inline-flex items-center overflow-hidden rounded text-xs"
+          className="inline-flex items-center overflow-hidden rounded-sm text-xs"
         >
           <span className="bg-muted py-0.5 pr-1 pl-1.5">{char}</span>
           <span className="bg-muted/50 text-muted-foreground py-0.5 pr-1.5 pl-1">
@@ -107,11 +107,11 @@ function Composer({
             value={text}
             onChange={(e) => setText(e.target.value)}
             placeholder="What's happening?"
-            className="text-foreground placeholder:text-muted-foreground w-full resize-none bg-transparent text-sm leading-relaxed outline-none"
+            className="text-foreground placeholder:text-muted-foreground w-full resize-none bg-transparent text-sm/relaxed outline-none"
             rows={2}
           />
           {text && hasUnavailable && (
-            <div className="mt-1 text-sm leading-relaxed whitespace-pre-wrap">
+            <div className="mt-1 text-sm/relaxed whitespace-pre-wrap">
               {analysis.map((item, i) => (
                 <span
                   key={i}
@@ -132,7 +132,7 @@ function Composer({
               disabled={!text.trim()}
               className="text-foreground hover:text-foreground/80 flex cursor-pointer items-center gap-1.5 rounded-full px-3 py-1 text-sm font-semibold transition-colors disabled:cursor-default disabled:opacity-30"
             >
-              <Send className="h-4 w-4" />
+              <Send className="size-4" />
               Post
             </button>
           </div>
@@ -157,7 +157,7 @@ function CharacterPicker({
 
   if (available.length === 0) {
     return (
-      <div className="bg-muted border-border mt-1 rounded border p-2 text-xs">
+      <div className="border-border bg-muted mt-1 rounded-sm border p-2 text-xs">
         <div className="text-muted-foreground mb-1 flex items-center justify-between">
           <span>No characters available</span>
           <button
@@ -172,7 +172,7 @@ function CharacterPicker({
   }
 
   return (
-    <div className="bg-muted border-border mt-1 rounded border p-2 text-xs">
+    <div className="border-border bg-muted mt-1 rounded-sm border p-2 text-xs">
       <div className="text-muted-foreground mb-1.5 flex items-center justify-between">
         <span>Give a character</span>
         <button
@@ -187,10 +187,10 @@ function CharacterPicker({
           <button
             key={char}
             onClick={() => onPick(char)}
-            className="hover:bg-foreground/10 inline-flex cursor-pointer items-center overflow-hidden rounded font-mono transition-colors"
+            className="hover:bg-foreground/10 inline-flex cursor-pointer items-center overflow-hidden rounded-sm font-mono transition-colors"
           >
             <span className="bg-background py-0.5 pr-1 pl-1.5">{char}</span>
-            <span className="text-muted-foreground bg-background/50 py-0.5 pr-1.5 pl-1">
+            <span className="bg-background/50 text-muted-foreground py-0.5 pr-1.5 pl-1">
               {count}
             </span>
           </button>
@@ -236,16 +236,16 @@ function PostCard({
               · {formatTime(post.timestamp)}
             </span>
           </div>
-          <p className="text-foreground mt-1 text-sm leading-relaxed break-words">
+          <p className="text-foreground mt-1 text-sm/relaxed wrap-break-word">
             {post.text}
           </p>
           <div className="mt-2 flex items-center gap-3">
             <ReceivedCharacters chars={post.receivedCharacters} />
             <button
               onClick={() => setPickerOpen((prev) => !prev)}
-              className="text-muted-foreground hover:text-foreground ml-auto flex cursor-pointer items-center gap-1 rounded p-1 text-xs transition-colors"
+              className="text-muted-foreground hover:text-foreground ml-auto flex cursor-pointer items-center gap-1 rounded-sm p-1 text-xs transition-colors"
             >
-              <Plus className="h-3.5 w-3.5" />
+              <Plus className="size-3.5" />
             </button>
           </div>
           {pickerOpen && (
@@ -283,7 +283,7 @@ function CharacterInventoryGrid({
         {entries.map(([char, count]) => (
           <span
             key={char}
-            className="inline-flex items-center overflow-hidden rounded font-mono text-xs"
+            className="inline-flex items-center overflow-hidden rounded-sm font-mono text-xs"
           >
             <span className="bg-muted py-0.5 pr-1 pl-1.5">{char}</span>
             <span className="bg-muted/50 text-muted-foreground py-0.5 pr-1.5 pl-1">
@@ -318,7 +318,7 @@ function ProfileView({
           onClick={onBack}
           className="text-muted-foreground hover:text-foreground cursor-pointer transition-colors"
         >
-          <ArrowLeft className="h-5 w-5" />
+          <ArrowLeft className="size-5" />
         </button>
         <span className="text-foreground text-sm font-semibold">
           {user.name}
@@ -425,10 +425,10 @@ export default function WeeklyCharsDemo() {
         className={`flex flex-1 cursor-pointer flex-col items-center gap-1 py-3 text-xs transition-colors ${
           view.type === "feed"
             ? "text-foreground"
-            : "text-muted-foreground hover:text-foreground"
+            : `text-muted-foreground hover:text-foreground`
         }`}
       >
-        <Home className="h-5 w-5" />
+        <Home className="size-5" />
         Feed
       </button>
       <button
@@ -436,10 +436,10 @@ export default function WeeklyCharsDemo() {
         className={`flex flex-1 cursor-pointer flex-col items-center gap-1 py-3 text-xs transition-colors ${
           isMyProfile
             ? "text-foreground"
-            : "text-muted-foreground hover:text-foreground"
+            : `text-muted-foreground hover:text-foreground`
         }`}
       >
-        <UserIcon className="h-5 w-5" />
+        <UserIcon className="size-5" />
         My Profile
       </button>
     </div>
@@ -450,7 +450,7 @@ export default function WeeklyCharsDemo() {
     if (!user) return null;
     const userPosts = sortedPosts.filter((p) => p.authorId === user.id);
     return (
-      <div className="bg-background mx-auto flex h-full w-full max-w-xl flex-col">
+      <div className="bg-background mx-auto flex size-full max-w-xl flex-col">
         <div className="flex-1 overflow-y-auto">
           <ProfileView
             user={user}
@@ -467,7 +467,7 @@ export default function WeeklyCharsDemo() {
   }
 
   return (
-    <div className="bg-background mx-auto flex h-full w-full max-w-xl flex-col">
+    <div className="bg-background mx-auto flex size-full max-w-xl flex-col">
       <div className="border-border flex shrink-0 items-center border-b px-4 py-3">
         <span className="text-foreground text-sm font-semibold tracking-wide">
           WeeklyChars

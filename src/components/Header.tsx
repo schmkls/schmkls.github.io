@@ -36,18 +36,18 @@ export function Header() {
               className="text-muted-foreground hover:text-primary flex items-center gap-2 transition-colors"
             >
               Home
-              <Home className="h-4 w-4" />
+              <Home className="size-4" />
             </Link>
           )}
         </div>
 
         <Popover open={open} onOpenChange={setOpen}>
           <PopoverTrigger asChild>
-            <button className="hover:bg-primary/10 group flex items-center gap-1 rounded-md px-3 py-2 transition-colors focus:outline-none">
+            <button className="group hover:bg-primary/10 flex items-center gap-1 rounded-md px-3 py-2 transition-colors focus:outline-none">
               <span className="group-hover:text-primary text-sm tracking-wider uppercase transition-colors sm:text-2xl sm:tracking-widest">
                 {currentIdea ? currentIdea.title : "Schmkls"}
               </span>
-              <ChevronsUpDown className="text-muted-foreground group-hover:text-primary h-3 w-3 opacity-50 transition-colors group-hover:opacity-100" />
+              <ChevronsUpDown className="text-muted-foreground group-hover:text-primary size-3 opacity-50 transition-colors group-hover:opacity-100" />
             </button>
           </PopoverTrigger>
           <PopoverContent className="w-56" align="center">
@@ -85,16 +85,16 @@ export function Header() {
           {nextIdea ? (
             <Link
               to={`/${nextIdea.path}`}
-              className="text-muted-foreground hover:text-primary flex items-center gap-2 transition-colors"
+              className="text-muted-foreground hover:text-primary flex items-center gap-2 p-3 transition-colors"
             >
               <span className="hidden text-xs tracking-widest uppercase sm:inline">
                 {nextIdea.title}
               </span>
-              <ChevronRight className="h-4 w-4 shrink-0" />
+              <ChevronRight className="size-4 shrink-0" />
             </Link>
           ) : (
             <span className="pointer-events-none flex items-center gap-2 opacity-0">
-              <ChevronRight className="h-4 w-4" />
+              <ChevronRight className="size-4" />
             </span>
           )}
         </div>

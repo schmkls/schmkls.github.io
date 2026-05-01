@@ -14,9 +14,9 @@ export default function WeeklyChars({ tagline }: { tagline: string }) {
           />
         </Post.Card.Body>
         <Post.Card.Body>
-          Today, many feeds are dominated by a few high-volume posters, while
-          everyone else gets buried. Social platforms reward output volume over
-          signal, so attention gets concentrated instead of distributed.
+          Today, many feeds are dominated by a AI and a few high-volume posters,
+          while everyone else gets buried. Social platforms reward output volume
+          over signal, so attention gets concentrated instead of distributed.
         </Post.Card.Body>
       </Post.Card>
 

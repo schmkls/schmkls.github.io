@@ -107,9 +107,9 @@ export default function TinderForExpensesDemo() {
               key={t}
               onClick={() => setTab(t)}
               className={cn(
-                "-mb-px flex flex-1 items-center justify-center gap-1 py-2 text-[11px] font-medium capitalize transition-colors",
+                `-mb-px flex flex-1 items-center justify-center gap-1 py-2 text-[11px] font-medium capitalize transition-colors`,
                 tab === t
-                  ? "border-b-2 border-zinc-900 text-zinc-900 dark:border-white dark:text-white"
+                  ? `border-b-2 border-zinc-900 text-zinc-900 dark:border-white dark:text-white`
                   : "text-zinc-400",
               )}
             >
@@ -145,7 +145,7 @@ export default function TinderForExpensesDemo() {
                       {/* Worth it overlay */}
                       <div
                         className={cn(
-                          "absolute inset-0 rounded-2xl bg-green-400/20 transition-opacity duration-150",
+                          `absolute inset-0 rounded-2xl bg-green-400/20 transition-opacity duration-150`,
                           showWorthIt ? "opacity-100" : "opacity-0",
                         )}
                       >
@@ -160,7 +160,7 @@ export default function TinderForExpensesDemo() {
                       {/* Not worth it overlay */}
                       <div
                         className={cn(
-                          "absolute inset-0 rounded-2xl bg-red-400/20 transition-opacity duration-150",
+                          `absolute inset-0 rounded-2xl bg-red-400/20 transition-opacity duration-150`,
                           showNotWorthIt ? "opacity-100" : "opacity-0",
                         )}
                       >
@@ -239,13 +239,13 @@ export default function TinderForExpensesDemo() {
               <p className="text-[11px] font-medium text-zinc-500 dark:text-zinc-400">
                 Monthly breakdown
               </p>
-              <div className="text-m flex gap-3 text-zinc-500 dark:text-zinc-400">
+              <div className="flex gap-3 text-xs text-zinc-500 dark:text-zinc-400">
                 <span className="flex items-center gap-1">
-                  <span className="inline-block h-2 w-2 rounded-sm bg-green-500" />
+                  <span className="inline-block size-2 rounded-sm bg-green-500" />
                   Worth it
                 </span>
                 <span className="flex items-center gap-1">
-                  <span className="inline-block h-2 w-2 rounded-sm bg-red-400" />
+                  <span className="inline-block size-2 rounded-sm bg-red-400" />
                   Not worth it
                 </span>
               </div>
