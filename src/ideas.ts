@@ -13,6 +13,10 @@ import ReceiptPoll from "~/pages/ReceiptPoll";
 import WeeklyChars from "~/pages/WeeklyChars";
 import TinderForExpensesDemo from "~/pages/TinderForExpenses/TinderForExpensesDemo";
 import WeeklyCharsDemo from "~/pages/WeeklyChars/WeeklyCharsDemo";
+import JobSeeker from "~/pages/JobSeeker";
+import PlaceYourMusic from "~/pages/PlaceYourMusic";
+import Salesque from "~/pages/Salesque";
+import Clickguider from "~/pages/Clickguider";
 
 interface Idea {
   path: string;
@@ -92,5 +96,29 @@ export const ideas: Idea[] = [
     tagline: "Earn your voice, one character at a time",
     component: WeeklyChars,
     demoComponent: WeeklyCharsDemo,
+  },
+  {
+    path: "jobseeker",
+    title: "JobSeeker",
+    tagline: "Weighted parameter job matching",
+    component: JobSeeker,
+  },
+  {
+    path: "place-your-music",
+    title: "Place Your Music",
+    tagline: "Music on the map",
+    component: PlaceYourMusic,
+  },
+  {
+    path: "salesque",
+    title: "Salesque",
+    tagline: "Real-time sales call assistant",
+    component: Salesque,
+  },
+  {
+    path: "clickguider",
+    title: "Clickguider",
+    tagline: "In-platform interactive guides",
+    component: Clickguider,
   },
 ];
