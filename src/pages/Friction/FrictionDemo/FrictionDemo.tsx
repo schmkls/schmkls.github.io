@@ -190,7 +190,7 @@ function PostCard({
             </div>
           </div>
         )}
-        <button className="bg-foreground/10 text-foreground mt-1.5 w-full cursor-pointer rounded px-2 py-1 text-[10px] font-medium transition-colors hover:bg-foreground/20">
+        <button className="bg-foreground/10 text-foreground hover:bg-foreground/20 mt-1.5 w-full cursor-pointer rounded px-2 py-1 text-[10px] font-medium transition-colors">
           {d.status === "ongoing" ? "Watch" : "Get notified"}
         </button>
       </div>
@@ -249,14 +249,14 @@ function PostCard({
           >
             {tab === "comments" ? "Comments" : "Debates on this post"}
             {activeTab === tab && (
-              <span className="bg-foreground absolute bottom-0 left-0 right-0 h-0.5 rounded-full" />
+              <span className="bg-foreground absolute right-0 bottom-0 left-0 h-0.5 rounded-full" />
             )}
           </button>
         ))}
       </div>
 
       {/* Tab content */}
-      <div className="px-3 pb-3 pt-1">
+      <div className="px-3 pt-1 pb-3">
         {activeTab === "comments" ? (
           <div>
             {topAgree && renderMiniComment(topAgree)}
@@ -283,11 +283,7 @@ function PostCard({
   );
 }
 
-function CreatePostInput({
-  onPost,
-}: {
-  onPost: (text: string) => void;
-}) {
+function CreatePostInput({ onPost }: { onPost: (text: string) => void }) {
   const [text, setText] = useState("");
 
   const handlePost = () => {
@@ -460,7 +456,7 @@ function ExpandedPostView({
             </div>
           </div>
         )}
-        <button className="bg-foreground/10 text-foreground mt-2 w-full cursor-pointer rounded-md px-3 py-1.5 text-xs font-medium transition-colors hover:bg-foreground/20">
+        <button className="bg-foreground/10 text-foreground hover:bg-foreground/20 mt-2 w-full cursor-pointer rounded-md px-3 py-1.5 text-xs font-medium transition-colors">
           {d.status === "ongoing" ? "Watch" : "Get notified"}
         </button>
       </div>
@@ -523,7 +519,7 @@ function ExpandedPostView({
           >
             {tab === "comments" ? "Comments" : "Debates on this post"}
             {activeTab === tab && (
-              <span className="bg-foreground absolute bottom-0 left-0 right-0 h-0.5 rounded-full" />
+              <span className="bg-foreground absolute right-0 bottom-0 left-0 h-0.5 rounded-full" />
             )}
           </button>
         ))}
@@ -561,8 +557,18 @@ function ExpandedPostView({
 
 type TimelineEvent =
   | { kind: "post"; ts: number; post: FrictionPost }
-  | { kind: "comment"; ts: number; comment: Comment; post: FrictionPost | undefined }
-  | { kind: "debate"; ts: number; debate: Debate; post: FrictionPost | undefined };
+  | {
+      kind: "comment";
+      ts: number;
+      comment: Comment;
+      post: FrictionPost | undefined;
+    }
+  | {
+      kind: "debate";
+      ts: number;
+      debate: Debate;
+      post: FrictionPost | undefined;
+    };
 
 function ProfileView({
   userId,
@@ -593,12 +599,18 @@ function ProfileView({
   const userDebates = debates.filter((d) => {
     const agreeComment = comments.find((c) => c.id === d.agreeCommentId);
     const disagreeComment = comments.find((c) => c.id === d.disagreeCommentId);
-    return agreeComment?.authorId === userId || disagreeComment?.authorId === userId;
+    return (
+      agreeComment?.authorId === userId || disagreeComment?.authorId === userId
+    );
   });
 
   // Build timeline
   const events: TimelineEvent[] = [
-    ...userPosts.map((p) => ({ kind: "post" as const, ts: p.timestamp, post: p })),
+    ...userPosts.map((p) => ({
+      kind: "post" as const,
+      ts: p.timestamp,
+      post: p,
+    })),
     ...userComments.map((c) => ({
       kind: "comment" as const,
       ts: c.timestamp,
@@ -630,19 +642,41 @@ function ProfileView({
       {/* User header */}
       <div className="flex flex-col items-center gap-1 px-3 pt-6 pb-4">
         <span className="text-4xl">{user.avatar}</span>
-        <span className="text-foreground text-lg font-semibold">{user.name}</span>
+        <span className="text-foreground text-lg font-semibold">
+          {user.name}
+        </span>
       </div>
 
       {/* Stats */}
       <div className="border-border flex border-y">
         {[
-          { label: "Posts", count: userPosts.length, icon: <Pencil className="h-3.5 w-3.5" /> },
-          { label: "Comments", count: userComments.length, icon: <MessageSquare className="h-3.5 w-3.5" /> },
-          { label: "Debates", count: userDebates.length, icon: <Swords className="h-3.5 w-3.5" /> },
+          {
+            label: "Posts",
+            count: userPosts.length,
+            icon: <Pencil className="h-3.5 w-3.5" />,
+          },
+          {
+            label: "Comments",
+            count: userComments.length,
+            icon: <MessageSquare className="h-3.5 w-3.5" />,
+          },
+          {
+            label: "Debates",
+            count: userDebates.length,
+            icon: <Swords className="h-3.5 w-3.5" />,
+          },
         ].map((s) => (
-          <div key={s.label} className="flex flex-1 flex-col items-center gap-0.5 py-3">
-            <div className="text-muted-foreground flex items-center gap-1 text-[10px]">{s.icon}{s.label}</div>
-            <span className="text-foreground text-sm font-semibold">{s.count}</span>
+          <div
+            key={s.label}
+            className="flex flex-1 flex-col items-center gap-0.5 py-3"
+          >
+            <div className="text-muted-foreground flex items-center gap-1 text-[10px]">
+              {s.icon}
+              {s.label}
+            </div>
+            <span className="text-foreground text-sm font-semibold">
+              {s.count}
+            </span>
           </div>
         ))}
       </div>
@@ -653,25 +687,35 @@ function ProfileView({
           Activity
         </div>
         {events.length === 0 && (
-          <p className="text-muted-foreground px-3 py-4 text-sm">No activity yet</p>
+          <p className="text-muted-foreground px-3 py-4 text-sm">
+            No activity yet
+          </p>
         )}
         {events.map((ev) => {
           if (ev.kind === "post") {
             return (
               <button
                 key={`post-${ev.post.id}`}
-                onClick={() => navigate({ tab: "feed", sub: "post", postId: ev.post.id })}
+                onClick={() =>
+                  navigate({ tab: "feed", sub: "post", postId: ev.post.id })
+                }
                 className="border-border flex w-full items-start gap-2.5 border-b px-3 py-2.5 text-left"
               >
-                <div className="bg-blue-500/15 text-blue-600 dark:text-blue-400 mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
+                <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-500/15 text-blue-600 dark:text-blue-400">
                   <Pencil className="h-3 w-3" />
                 </div>
                 <div className="min-w-0 flex-1">
                   <div className="flex items-baseline gap-1.5">
-                    <span className="text-foreground text-xs font-medium">Posted</span>
-                    <span className="text-muted-foreground text-[10px]">{formatDate(ev.ts)}</span>
+                    <span className="text-foreground text-xs font-medium">
+                      Posted
+                    </span>
+                    <span className="text-muted-foreground text-[10px]">
+                      {formatDate(ev.ts)}
+                    </span>
                   </div>
-                  <p className="text-muted-foreground mt-0.5 line-clamp-2 text-xs">{ev.post.text}</p>
+                  <p className="text-muted-foreground mt-0.5 line-clamp-2 text-xs">
+                    {ev.post.text}
+                  </p>
                 </div>
               </button>
             );
@@ -702,16 +746,24 @@ function ProfileView({
                     <span className="text-foreground text-xs font-medium">
                       {ev.comment.type === "agree" ? "Agreed" : "Disagreed"}
                     </span>
-                    <span className="text-muted-foreground text-[10px]">{formatDate(ev.ts)}</span>
+                    <span className="text-muted-foreground text-[10px]">
+                      {formatDate(ev.ts)}
+                    </span>
                   </div>
-                  <p className="text-muted-foreground mt-0.5 line-clamp-2 text-xs">{ev.comment.text}</p>
+                  <p className="text-muted-foreground mt-0.5 line-clamp-2 text-xs">
+                    {ev.comment.text}
+                  </p>
                 </div>
               </button>
             );
           }
           // debate
-          const agreeComment = comments.find((c) => c.id === ev.debate.agreeCommentId);
-          const disagreeComment = comments.find((c) => c.id === ev.debate.disagreeCommentId);
+          const agreeComment = comments.find(
+            (c) => c.id === ev.debate.agreeCommentId,
+          );
+          const disagreeComment = comments.find(
+            (c) => c.id === ev.debate.disagreeCommentId,
+          );
           const opponent =
             agreeComment?.authorId === userId ? disagreeComment : agreeComment;
           const opponentUser = opponent
@@ -727,7 +779,7 @@ function ProfileView({
               }
               className="border-border flex w-full items-start gap-2.5 border-b px-3 py-2.5 text-left"
             >
-              <div className="bg-purple-500/15 text-purple-600 dark:text-purple-400 mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
+              <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-purple-500/15 text-purple-600 dark:text-purple-400">
                 <Swords className="h-3 w-3" />
               </div>
               <div className="min-w-0 flex-1">
@@ -822,7 +874,7 @@ function DebatesView({
                         {n.buttons.map((b) => (
                           <button
                             key={b.label}
-                            className="bg-foreground/10 text-foreground cursor-pointer rounded px-2 py-1 text-[10px] font-medium transition-colors hover:bg-foreground/20"
+                            className="bg-foreground/10 text-foreground hover:bg-foreground/20 cursor-pointer rounded px-2 py-1 text-[10px] font-medium transition-colors"
                           >
                             {b.label}
                           </button>
@@ -841,9 +893,7 @@ function DebatesView({
       <div className="h-full snap-y snap-mandatory overflow-y-auto">
         {debates.map((d) => {
           const post = posts.find((p) => p.id === d.postId);
-          const agreeComment = comments.find(
-            (c) => c.id === d.agreeCommentId,
-          );
+          const agreeComment = comments.find((c) => c.id === d.agreeCommentId);
           const disagreeComment = comments.find(
             (c) => c.id === d.disagreeCommentId,
           );
@@ -858,10 +908,7 @@ function DebatesView({
             : null;
 
           return (
-            <div
-              key={d.id}
-              className="flex h-full snap-start flex-col"
-            >
+            <div key={d.id} className="flex h-full snap-start flex-col">
               {/* Original post (condensed) */}
               {post && (
                 <button
@@ -1023,7 +1070,10 @@ export default function FrictionDemo() {
     [userVotes],
   );
 
-  const feedSubTabs: { key: "trending" | "following" | "profile"; label: string }[] = [
+  const feedSubTabs: {
+    key: "trending" | "following" | "profile";
+    label: string;
+  }[] = [
     { key: "trending", label: "Trending" },
     { key: "following", label: "Following" },
     { key: "profile", label: "My Profile" },
@@ -1031,7 +1081,9 @@ export default function FrictionDemo() {
 
   const activeSub =
     route.tab === "feed" &&
-    (route.sub === "trending" || route.sub === "following" || route.sub === "profile")
+    (route.sub === "trending" ||
+      route.sub === "following" ||
+      route.sub === "profile")
       ? route.sub
       : null;
 
@@ -1108,7 +1160,7 @@ export default function FrictionDemo() {
               >
                 {t.label}
                 {activeSub === t.key && (
-                  <span className="bg-foreground absolute bottom-0 left-1/4 right-1/4 h-0.5 rounded-full" />
+                  <span className="bg-foreground absolute right-1/4 bottom-0 left-1/4 h-0.5 rounded-full" />
                 )}
               </button>
             ))}

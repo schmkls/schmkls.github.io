@@ -7,13 +7,11 @@ import Encircled from "~/pages/Encircled";
 import FindToWatch from "~/pages/FindToWatch";
 import PokemonIRL from "~/pages/PokemonIRL";
 import EvolutionRace from "~/pages/EvolutionRace";
-import CommunicationTrail from "~/pages/CommunicationTrail";
 import Friction from "~/pages/Friction";
 import FrictionDemo from "~/pages/Friction/FrictionDemo/FrictionDemo";
 import ReceiptPoll from "~/pages/ReceiptPoll";
 import WeeklyChars from "~/pages/WeeklyChars";
 import TinderForExpensesDemo from "~/pages/TinderForExpenses/TinderForExpensesDemo";
-import CommunicationTrailDemo from "~/pages/CommunicationTrail/CommunicationTrailDemo";
 import WeeklyCharsDemo from "~/pages/WeeklyChars/WeeklyCharsDemo";
 
 interface Idea {
@@ -74,13 +72,6 @@ export const ideas: Idea[] = [
     tagline:
       "A multiplayer classroom game where students race through evolution",
     component: EvolutionRace,
-  },
-  {
-    path: "communication-trail",
-    title: "Communication Trail",
-    tagline: "One shared timeline for every customer journey",
-    component: CommunicationTrail,
-    demoComponent: CommunicationTrailDemo,
   },
   {
     path: "friction",

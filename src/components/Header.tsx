@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
-import { ChevronLeft, ChevronRight, ChevronsUpDown, Check } from "lucide-react";
+import { ChevronRight, ChevronsUpDown, Check, Home } from "lucide-react";
 import { ideas } from "~/ideas";
 import { cn } from "~/lib/utils";
 import {
@@ -23,10 +23,6 @@ export function Header() {
 
   const currentIndex = ideas.findIndex((idea) => `/${idea.path}` === pathname);
   const currentIdea = currentIndex >= 0 ? ideas[currentIndex] : null;
-  const prevIdea =
-    currentIndex >= 0
-      ? ideas[(currentIndex - 1 + ideas.length) % ideas.length]
-      : null;
   const nextIdea =
     currentIndex >= 0 ? ideas[(currentIndex + 1) % ideas.length] : null;
 
@@ -34,20 +30,14 @@ export function Header() {
     <header className="border-border bg-background sticky top-0 z-10 border-b">
       <div className="grid h-16 grid-cols-[1fr_auto_1fr] items-center px-4 sm:px-8">
         <div className="flex justify-start">
-          {prevIdea ? (
+          {currentIdea && (
             <Link
-              to={`/${prevIdea.path}`}
+              to="/"
               className="text-muted-foreground hover:text-primary flex items-center gap-2 transition-colors"
             >
-              <ChevronLeft className="h-4 w-4 shrink-0" />
-              <span className="hidden text-xs tracking-widest uppercase sm:inline">
-                {prevIdea.title}
-              </span>
+              Home
+              <Home className="h-4 w-4" />
             </Link>
-          ) : (
-            <span className="pointer-events-none flex items-center gap-2 opacity-0">
-              <ChevronLeft className="h-4 w-4" />
-            </span>
           )}
         </div>
 
