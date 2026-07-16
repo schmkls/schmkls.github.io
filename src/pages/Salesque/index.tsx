@@ -143,6 +143,16 @@ export default function Salesque({ tagline }: { tagline: string }) {
           <ul className="list-inside list-disc space-y-2 p-2">
             <li>
               <a
+                href="https://garba.ai/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:underline"
+              >
+                Garba.ai
+              </a>
+            </li>
+            <li>
+              <a
                 href="https://www.clari.com/products/copilot/"
                 target="_blank"
                 rel="noopener noreferrer"
