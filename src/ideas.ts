@@ -17,6 +17,7 @@ import JobSeeker from "~/pages/JobSeeker";
 import PlaceYourMusic from "~/pages/PlaceYourMusic";
 import Salesque from "~/pages/Salesque";
 import Clickguider from "~/pages/Clickguider";
+import Referensee from "~/pages/Referensee";
 
 interface Idea {
   path: string;
@@ -120,5 +121,11 @@ export const ideas: Idea[] = [
     title: "Clickguider",
     tagline: "In-platform interactive guides",
     component: Clickguider,
+  },
+  {
+    path: "referensee",
+    title: "Referensee",
+    tagline: "See where your news comes from — and how others see it",
+    component: Referensee,
   },
 ];
