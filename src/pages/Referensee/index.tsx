@@ -1,4 +1,5 @@
 import Post from "~/templates/Post";
+import ReferenseeDemo from "./ReferenseeDemo/ReferenseeDemo";
 
 export default function Referensee({ tagline }: { tagline: string }) {
   return (
@@ -155,6 +156,10 @@ export default function Referensee({ tagline }: { tagline: string }) {
             directly onto X and news sites is a natural later expansion.
           </blockquote>
         </Post.Card.Body>
+        <Post.DemoButton
+          title="Try the demo"
+          demoComponent={<ReferenseeDemo />}
+        />
       </Post.Card>
 
       <Post.Card>

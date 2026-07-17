@@ -18,6 +18,7 @@ import PlaceYourMusic from "~/pages/PlaceYourMusic";
 import Salesque from "~/pages/Salesque";
 import Clickguider from "~/pages/Clickguider";
 import Referensee from "~/pages/Referensee";
+import ReferenseeDemo from "~/pages/Referensee/ReferenseeDemo/ReferenseeDemo";
 
 interface Idea {
   path: string;
@@ -127,5 +128,6 @@ export const ideas: Idea[] = [
     title: "Referensee",
     tagline: "See where your news comes from — and how others see it",
     component: Referensee,
+    demoComponent: ReferenseeDemo,
   },
 ];
