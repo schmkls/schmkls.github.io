@@ -1,8 +1,8 @@
 import Post from "~/templates/Post";
 
-export default function Salesque({ tagline }: { tagline: string }) {
+export default function Salesque() {
   return (
-    <Post tagline={tagline}>
+    <Post>
       <Post.Card>
         <Post.Card.Title>The idea</Post.Card.Title>
         <Post.Card.Body>
@@ -16,7 +16,7 @@ export default function Salesque({ tagline }: { tagline: string }) {
       </Post.Card>
 
       <Post.Card>
-        <Post.Card.Title>Who it&apos;s for</Post.Card.Title>
+        <Post.Card.Title>Who it's for</Post.Card.Title>
         <Post.Card.Body>
           Sales teams — especially Heads of Revenue Operations and sales
           enablement leads — who want to onboard new reps faster, keep answers
@@ -27,12 +27,12 @@ export default function Salesque({ tagline }: { tagline: string }) {
       <Post.Card>
         <Post.Card.Title>How it works</Post.Card.Title>
         <Post.Card.Body>
-          <ul className="list-inside list-disc space-y-2 p-2">
+          <Post.List>
             <li>The call is transcribed live.</li>
             <li>
-              An LLM analyses the transcript against the sales process
-              you&apos;ve defined and tracks which steps have been covered (e.g.
-              after every X transcribed sentences).
+              An LLM analyses the transcript against the sales process you've
+              defined and tracks which steps have been covered (e.g. after every
+              X transcribed sentences).
             </li>
             <li>
               For each customer question, the AI runs a semantic search (RAG)
@@ -41,7 +41,7 @@ export default function Salesque({ tagline }: { tagline: string }) {
             </li>
             <li>
               The rep sees, in real time:
-              <ul className="list-inside list-disc p-2 pl-6">
+              <Post.List>
                 <li>
                   Visual feedback on how the sales process is progressing.
                 </li>
@@ -49,9 +49,9 @@ export default function Salesque({ tagline }: { tagline: string }) {
                 <li>
                   Suggested answers each time the customer asks a question.
                 </li>
-              </ul>
+              </Post.List>
             </li>
-          </ul>
+          </Post.List>
         </Post.Card.Body>
       </Post.Card>
 
@@ -70,26 +70,24 @@ export default function Salesque({ tagline }: { tagline: string }) {
         </Post.Card.Body>
         <Post.Card.Body>
           You set up your sales process as:
-          <ol className="list-inside list-decimal space-y-2 p-2">
+          <Post.List ordered>
             <li>
-              Identify whether you&apos;re talking to someone relevant to
-              purchasing (manager, owner, bar lead). If it&apos;s e.g. a new
-              server, ask if you can speak to someone in a more relevant role.
+              Identify whether you're talking to someone relevant to purchasing
+              (manager, owner, bar lead). If it's e.g. a new server, ask if you
+              can speak to someone in a more relevant role.
             </li>
             <li>Identify what kind of restaurant it is.</li>
             <li>
               Identify whether controlling music volume is a problem for the
               customer. Check common drivers:
-              <ul className="list-inside list-disc p-2 pl-6">
+              <Post.List>
                 <li>
                   Need for different vibes and volume at breakfast, lunch, and
                   evening.
                 </li>
-                <li>
-                  Staff don&apos;t have the time or knowledge to manage music.
-                </li>
+                <li>Staff don't have the time or knowledge to manage music.</li>
                 <li>They want to maximise the atmosphere.</li>
-              </ul>
+              </Post.List>
             </li>
             <li>
               If relevant, mention a success story from a larger, similar
@@ -97,11 +95,11 @@ export default function Salesque({ tagline }: { tagline: string }) {
             </li>
             <li>On interest: offer the customer a trial period.</li>
             <li>On interest: send the customer a getting-started guide.</li>
-          </ol>
+          </Post.List>
         </Post.Card.Body>
         <Post.Card.Body>
           In your FAQ you add answers to common questions, e.g.:
-          <ul className="list-inside list-disc space-y-2 p-2">
+          <Post.List>
             <li>
               <strong>Q:</strong> How long does a demo period last?
               <br />
@@ -109,8 +107,8 @@ export default function Salesque({ tagline }: { tagline: string }) {
               visiting … or contacting …
             </li>
             <li>
-              <strong>Q:</strong> What&apos;s the difference between
-              business-tier and pro-tier?
+              <strong>Q:</strong> What's the difference between business-tier
+              and pro-tier?
               <br />
               <strong>A:</strong> The difference between business-tier and
               pro-tier is …
@@ -120,7 +118,7 @@ export default function Salesque({ tagline }: { tagline: string }) {
               <br />
               <strong>A:</strong> …
             </li>
-          </ul>
+          </Post.List>
         </Post.Card.Body>
         <Post.Card.Body>
           In the rest of the context you add a link to your website, where more
@@ -129,69 +127,49 @@ export default function Salesque({ tagline }: { tagline: string }) {
         <Post.Card.Body>
           When a rep is on a call using Salesque, the call is transcribed and
           the rep gets:
-          <ul className="list-inside list-disc p-2">
+          <Post.List>
             <li>Visual feedback on how the sales process is progressing.</li>
             <li>Suggested next steps in the sales process.</li>
             <li>Suggested answers every time the customer asks a question.</li>
-          </ul>
+          </Post.List>
         </Post.Card.Body>
       </Post.Card>
 
       <Post.Card>
         <Post.Card.Title>Services solving the same problem</Post.Card.Title>
         <Post.Card.Body>
-          <ul className="list-inside list-disc space-y-2 p-2">
+          <Post.List>
             <li>
-              <a
-                href="https://garba.ai/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:underline"
-              >
-                Garba.ai
-              </a>
+              <Post.Link href="https://garba.ai/">Garba.ai</Post.Link>
             </li>
             <li>
-              <a
-                href="https://www.clari.com/products/copilot/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:underline"
-              >
+              <Post.Link href="https://www.clari.com/products/copilot/">
                 Clari Copilot (formerly Wingman)
-              </a>{" "}
+              </Post.Link>{" "}
               — The closest match: real-time transcription during sales calls,
               with live battle cards, objection-handling cues, and monologue
-              alerts surfaced on the rep&apos;s screen as keywords come up.
-              Overlaps almost entirely with Salesque&apos;s &quot;suggest
-              answers, prompt next step&quot; loop; differs in that the sales
-              process is structured around battle cards rather than an explicit,
-              sequential pipeline tracker.
+              alerts surfaced on the rep's screen as keywords come up. Overlaps
+              almost entirely with Salesque's "suggest answers, prompt next
+              step" loop; differs in that the sales process is structured around
+              battle cards rather than an explicit, sequential pipeline tracker.
             </li>
             <li>
-              <a
-                href="https://www.gong.io/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:underline"
-              >
-                Gong
-              </a>{" "}
-              — The category leader for conversation intelligence: every call is
+              <Post.Link href="https://www.gong.io/">Gong</Post.Link> — The
+              category leader for conversation intelligence: every call is
               recorded, transcribed, and analyzed for deal risk, talk ratios,
               and trending objections. Solves the same underlying need (extract
               value from sales calls, onboard reps faster) but is heavier on
               post-call analytics and deal forecasting than on real-time,
               in-call assistance.
             </li>
-          </ul>
+          </Post.List>
         </Post.Card.Body>
         <Post.Card.Body>
           There is a wide range of sales-call AI tools (Chorus by ZoomInfo,
           Avoma, Fireflies, Salesloft Conversations, Outreach Kaia) — most are
-          biased toward post-call summaries and CRM auto-fill, so
-          Salesque&apos;s edge would be the explicit, user-defined sales-process
-          tracker plus live FAQ retrieval.
+          biased toward post-call summaries and CRM auto-fill, so Salesque's
+          edge would be the explicit, user-defined sales-process tracker plus
+          live FAQ retrieval.
         </Post.Card.Body>
       </Post.Card>
     </Post>

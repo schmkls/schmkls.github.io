@@ -38,6 +38,9 @@ export default defineConfig([
     ],
     rules: {
       "react/prop-types": "off",
+      // Only forbid the entities that catch real mistakes (stray tags/braces),
+      // so post prose can use natural apostrophes and quotes.
+      "react/no-unescaped-entities": ["error", { forbid: [">", "}"] }],
       "react-refresh/only-export-components": "off",
       "@typescript-eslint/array-type": "off",
       "@typescript-eslint/consistent-type-definitions": "off",

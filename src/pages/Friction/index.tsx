@@ -1,9 +1,9 @@
 import Post from "~/templates/Post";
 import FrictionDemo from "./FrictionDemo/FrictionDemo";
 
-export default function Friction({ tagline }: { tagline: string }) {
+export default function Friction() {
   return (
-    <Post tagline={tagline}>
+    <Post>
       <Post.Card>
         <Post.Card.Title>Inspiration</Post.Card.Title>
         <Post.Card.Body>
@@ -40,11 +40,11 @@ export default function Friction({ tagline }: { tagline: string }) {
         </Post.Card.Body>
         <Post.Card.Body>
           Users have public profiles (not anonymous), and can:
-          <ul className="list-inside list-disc p-2">
+          <Post.List>
             <li>post statements</li>
             <li>upvote and downvote</li>
-            <li>comment as either &quot;Agree&quot; or &quot;Disagree&quot;</li>
-          </ul>
+            <li>comment as either "Agree" or "Disagree"</li>
+          </Post.List>
         </Post.Card.Body>
         <Post.Card.Body>
           From there, Friction identifies strong opposing viewpoints and invites
@@ -56,7 +56,7 @@ export default function Friction({ tagline }: { tagline: string }) {
         <Post.Card.Title>Debate Matching Model</Post.Card.Title>
         <Post.Card.Body>
           For each statement:
-          <ul className="list-inside list-disc p-2">
+          <Post.List>
             <li>users vote and leave Agree/Disagree comments</li>
             <li>
               top-voted Agree and top-voted Disagree voices get debate invites
@@ -64,13 +64,13 @@ export default function Friction({ tagline }: { tagline: string }) {
             <li>
               if someone declines, the next strongest matched voice is invited
             </li>
-          </ul>
+          </Post.List>
         </Post.Card.Body>
         <Post.Card.Body>
           When users open the Debate section, they see incoming
           invites/notifications based on this matching model. During each live
-          debate, viewers see the original statement plus each debater&apos;s
-          core argument, so the disagreement is clear and grounded.
+          debate, viewers see the original statement plus each debater's core
+          argument, so the disagreement is clear and grounded.
         </Post.Card.Body>
       </Post.Card>
 
@@ -78,37 +78,37 @@ export default function Friction({ tagline }: { tagline: string }) {
         <Post.Card.Title>Why this matters</Post.Card.Title>
         <Post.Card.Body>
           Friction turns disagreement into a format that:
-          <ul className="list-inside list-disc p-2">
+          <Post.List>
             <li>is structured and easy to follow</li>
             <li>exposes friction</li>
-          </ul>
+          </Post.List>
         </Post.Card.Body>
       </Post.Card>
 
       <Post.Card>
         <Post.Card.Title>Product Directions</Post.Card.Title>
         <Post.Card.Body>
-          <ol className="list-inside list-decimal p-2">
+          <Post.List ordered>
             <li>
-              <b>Standalone platform (main direction):</b> Debate is the main
-              interface, while threads act as a side view that supports debate
-              creation and context. Users discover debates first, then dive into
-              thread discussion for nuance.
+              <strong>Standalone platform (main direction):</strong> Debate is
+              the main interface, while threads act as a side view that supports
+              debate creation and context. Users discover debates first, then
+              dive into thread discussion for nuance.
             </li>
             <li>
-              <b>Debate-first mode:</b> Livestream debates are the primary feed,
-              and thread activity is tightly connected to each debate room. New
-              debates are continuously generated from statement + Agree/Disagree
-              engagement.
+              <strong>Debate-first mode:</strong> Livestream debates are the
+              primary feed, and thread activity is tightly connected to each
+              debate room. New debates are continuously generated from statement
+              + Agree/Disagree engagement.
             </li>
             <li>
-              <b>Reddit add-on / Reddit-based approach:</b> Friction can layer
-              on top of real Reddit threads by analyzing opposing top comments
-              and inviting matched users into live debates. This allows Friction
-              to bootstrap from existing communities and existing discussion
-              momentum.
+              <strong>Reddit add-on / Reddit-based approach:</strong> Friction
+              can layer on top of real Reddit threads by analyzing opposing top
+              comments and inviting matched users into live debates. This allows
+              Friction to bootstrap from existing communities and existing
+              discussion momentum.
             </li>
-          </ol>
+          </Post.List>
         </Post.Card.Body>
       </Post.Card>
 
@@ -120,10 +120,9 @@ export default function Friction({ tagline }: { tagline: string }) {
         <Post.Card.Body>
           Friction is an experiment in making that possible at scale.
         </Post.Card.Body>
-        <Post.DemoButton
-          title="Try the demo"
-          demoComponent={<FrictionDemo />}
-        />
+        <Post.DemoButton>
+          <FrictionDemo />
+        </Post.DemoButton>
       </Post.Card>
     </Post>
   );

@@ -1,119 +1,106 @@
-import {
-  createContext,
-  useContext,
-  useState,
-  useEffect,
-  useRef,
-  type ReactNode,
-} from "react";
-import { createPortal } from "react-dom";
-import { X } from "lucide-react";
+import { createContext, useContext, type ReactNode } from "react";
+import { DemoButton } from "~/components/DemoButton";
 import { cn } from "~/lib/utils";
 
-type PostContextValue = {
-  openDemo: (title: string, component: ReactNode) => void;
-};
+/**
+ * Building blocks for idea posts. A post is a sequence of cards; each card
+ * holds a title and one `Post.Card.Body` per paragraph:
+ *
+ *   export default function MyIdea() {
+ *     return (
+ *       <Post>
+ *         <Post.Card>
+ *           <Post.Card.Title>Problem</Post.Card.Title>
+ *           <Post.Card.Body>
+ *             Prose is written naturally — apostrophes, quotes and dashes need
+ *             no escaping. Inline vocabulary:
+ *             <Post.Link href="https://example.com">external link</Post.Link>
+ *             <Post.List>
+ *               <li>bullet list — pass `ordered` for a numbered one</li>
+ *               <li>lists indent automatically when nested</li>
+ *             </Post.List>
+ *             <Post.Blockquote>quoted aside</Post.Blockquote>
+ *             sources as superscript refs: <Post.SourceLink href="…" index={1} />
+ *           </Post.Card.Body>
+ *           <Post.Card.Subtitle>Optional subheading</Post.Card.Subtitle>
+ *           <Post.DemoButton><MyIdeaDemo /></Post.DemoButton>
+ *         </Post.Card>
+ *       </Post>
+ *     );
+ *   }
+ *
+ * Title and tagline come from the post's entry in ideas.ts: the router wraps
+ * every post route in <PostMetaProvider>, so pages never pass them around.
+ */
 
-const PostContext = createContext<PostContextValue | null>(null);
+type PostMeta = { title: string; tagline: string };
 
-function usePostContext() {
-  const ctx = useContext(PostContext);
-  if (!ctx) throw new Error("Post subcomponents must be used within <Post>");
-  return ctx;
-}
+const PostMetaContext = createContext<PostMeta | null>(null);
 
-export type ActiveDemo = { title: string; component: ReactNode };
-
-export function DemoOverlay({
-  demo,
-  onClose,
+export function PostMetaProvider({
+  meta,
+  children,
 }: {
-  demo: ActiveDemo;
-  onClose: () => void;
+  meta: PostMeta;
+  children: ReactNode;
 }) {
-  const [visible, setVisible] = useState(false);
-  const closingRef = useRef(false);
-
-  useEffect(() => {
-    const id = requestAnimationFrame(() => setVisible(true));
-    return () => cancelAnimationFrame(id);
-  }, []);
-
-  function handleClose() {
-    if (closingRef.current) return;
-    closingRef.current = true;
-    setVisible(false);
-    setTimeout(onClose, 300);
-  }
-
-  useEffect(() => {
-    function onKey(e: KeyboardEvent) {
-      if (e.key !== "Escape" || closingRef.current) return;
-      closingRef.current = true;
-      setVisible(false);
-      setTimeout(onClose, 300);
-    }
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [onClose]);
-
-  return createPortal(
-    <div
-      className={cn(
-        `bg-background fixed inset-0 z-50 flex flex-col transition-all duration-300`,
-        visible ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0",
-      )}
-    >
-      <div className="border-border flex shrink-0 items-center justify-between border-b px-6 py-4">
-        <span className="text-muted-foreground text-xs tracking-widest uppercase">
-          {demo.title}
-        </span>
-        <button
-          onClick={handleClose}
-          className="text-muted-foreground hover:bg-muted hover:text-foreground cursor-pointer rounded-md p-2 transition-colors focus:outline-none"
-          aria-label="Close demo"
-        >
-          <X className="size-4" />
-        </button>
-      </div>
-      <div className="min-h-0 flex-1 overflow-auto">{demo.component}</div>
-    </div>,
-    document.body,
+  return (
+    <PostMetaContext.Provider value={meta}>{children}</PostMetaContext.Provider>
   );
 }
 
-function Post({ tagline, children }: { tagline: string; children: ReactNode }) {
-  const [activeDemo, setActiveDemo] = useState<ActiveDemo | null>(null);
+function usePostMeta() {
+  const meta = useContext(PostMetaContext);
+  if (!meta) {
+    throw new Error(
+      "Post must be rendered inside <PostMetaProvider> — post routes get it from router.tsx",
+    );
+  }
+  return meta;
+}
+
+function Post({ children }: { children: ReactNode }) {
+  const { tagline } = usePostMeta();
 
   return (
-    <PostContext.Provider
-      value={{
-        openDemo: (title, component) => setActiveDemo({ title, component }),
-      }}
-    >
-      <article className="mx-auto flex max-w-4xl flex-col gap-8 px-4 py-12">
-        <CardBody>
-          <i>{tagline}</i>
-        </CardBody>
-        {children}
-      </article>
-      {activeDemo && (
-        <DemoOverlay demo={activeDemo} onClose={() => setActiveDemo(null)} />
-      )}
-    </PostContext.Provider>
+    <article className="mx-auto flex max-w-4xl flex-col gap-8 px-4 py-12">
+      <CardBody>
+        <i>{tagline}</i>
+      </CardBody>
+      {children}
+    </article>
   );
 }
+
+/* 0 outside any card, 1 inside a top-level card, 2 inside a nested card, … */
+const CardDepthContext = createContext(0);
 
 function Card({ children }: { children: ReactNode }) {
+  const depth = useContext(CardDepthContext);
+
   return (
-    <div className="bg-muted flex flex-col gap-3 rounded-xl p-6">
-      {children}
-    </div>
+    <CardDepthContext.Provider value={depth + 1}>
+      <div className="bg-muted flex flex-col gap-3 rounded-xl p-6">
+        {children}
+      </div>
+    </CardDepthContext.Provider>
   );
 }
 
 function CardTitle({ children }: { children: ReactNode }) {
-  return <h2 className="text-foreground text-lg font-semibold">{children}</h2>;
+  const Heading = useContext(CardDepthContext) > 1 ? "h3" : "h2";
+  return (
+    <Heading className="text-foreground text-lg font-semibold">
+      {children}
+    </Heading>
+  );
+}
+
+function CardSubtitle({ children }: { children: ReactNode }) {
+  const Heading = useContext(CardDepthContext) > 1 ? "h4" : "h3";
+  return (
+    <Heading className="text-foreground font-semibold">{children}</Heading>
+  );
 }
 
 function CardBody({ children }: { children: ReactNode }) {
@@ -122,37 +109,51 @@ function CardBody({ children }: { children: ReactNode }) {
   );
 }
 
-function HorizontalLine() {
-  return (
-    <div className="via-border h-px bg-linear-to-r from-transparent to-transparent" />
-  );
-}
+const ListDepthContext = createContext(0);
 
-function PostImage({ src, alt }: { src: string; alt?: string }) {
-  return (
-    <img
-      src={src}
-      alt={alt ?? ""}
-      className="max-h-96 w-full rounded-xl object-cover"
-    />
-  );
-}
-
-function DemoButton({
-  title,
-  demoComponent,
+function List({
+  ordered = false,
+  children,
 }: {
-  title: string;
-  demoComponent: ReactNode;
+  ordered?: boolean;
+  children: ReactNode;
 }) {
-  const { openDemo } = usePostContext();
+  const depth = useContext(ListDepthContext);
+  const Tag = ordered ? "ol" : "ul";
+
   return (
-    <button
-      onClick={() => openDemo(title, demoComponent)}
-      className="bg-primary text-primary-foreground hover:bg-primary/85 cursor-pointer self-start rounded-lg px-5 py-2 text-sm font-medium transition-colors focus:outline-none"
+    <ListDepthContext.Provider value={depth + 1}>
+      <Tag
+        className={cn(
+          "list-inside space-y-2 p-2",
+          ordered ? "list-decimal" : "list-disc",
+          depth > 0 && "pl-6",
+        )}
+      >
+        {children}
+      </Tag>
+    </ListDepthContext.Provider>
+  );
+}
+
+function Link({ href, children }: { href: string; children: ReactNode }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-primary hover:underline"
     >
-      {title}
-    </button>
+      {children}
+    </a>
+  );
+}
+
+function Blockquote({ children }: { children: ReactNode }) {
+  return (
+    <blockquote className="border-border border-l-2 pl-4">
+      {children}
+    </blockquote>
   );
 }
 
@@ -169,12 +170,29 @@ function SourceLink({ href, index }: { href: string; index: number }) {
   );
 }
 
+function PostDemoButton({
+  label,
+  children,
+}: {
+  label?: string;
+  children: ReactNode;
+}) {
+  const { title } = usePostMeta();
+  return (
+    <DemoButton title={title} label={label}>
+      {children}
+    </DemoButton>
+  );
+}
+
 Card.Title = CardTitle;
+Card.Subtitle = CardSubtitle;
 Card.Body = CardBody;
 Post.Card = Card;
-Post.HorizontalLine = HorizontalLine;
-Post.Image = PostImage;
-Post.DemoButton = DemoButton;
+Post.List = List;
+Post.Link = Link;
+Post.Blockquote = Blockquote;
 Post.SourceLink = SourceLink;
+Post.DemoButton = PostDemoButton;
 
 export default Post;

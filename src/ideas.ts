@@ -24,7 +24,7 @@ interface Idea {
   path: string;
   title: string;
   tagline: string;
-  component: ComponentType<{ tagline: string }>;
+  component: ComponentType;
   demoComponent?: ComponentType;
 }
 
@@ -39,7 +39,7 @@ export const ideas: Idea[] = [
   {
     path: "visualize-social-networks",
     title: "Visualize Social Networks",
-    tagline: "See who you know \u2014 and how they\u2019re connected",
+    tagline: "See who you know — and how they’re connected",
     component: VisualizeSocialNetworks,
   },
   {
@@ -68,8 +68,8 @@ export const ideas: Idea[] = [
   },
   {
     path: "pokemon-irl",
-    title: "Pok\u00e9mon IRL",
-    tagline: "Catch \u2018em all \u2014 nature edition",
+    title: "Pokémon IRL",
+    tagline: "Catch ‘em all — nature edition",
     component: PokemonIRL,
   },
   {

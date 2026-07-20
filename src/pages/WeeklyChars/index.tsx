@@ -1,9 +1,9 @@
 import Post from "~/templates/Post";
 import WeeklyCharsDemo from "./WeeklyCharsDemo";
 
-export default function WeeklyChars({ tagline }: { tagline: string }) {
+export default function WeeklyChars() {
   return (
-    <Post tagline={tagline}>
+    <Post>
       <Post.Card>
         <Post.Card.Title>The Problem</Post.Card.Title>
         <Post.Card.Body>
@@ -30,10 +30,10 @@ export default function WeeklyChars({ tagline }: { tagline: string }) {
           transfers. Profiles show:
         </Post.Card.Body>
         <Post.Card.Body>
-          <ul className="list-inside list-disc p-2">
+          <Post.List>
             <li>posts (text + author + characters received)</li>
             <li>current character inventory (how many of each character)</li>
-          </ul>
+          </Post.List>
         </Post.Card.Body>
         <Post.Card.Body>
           This is an experiment in increasing{" "}
@@ -41,10 +41,9 @@ export default function WeeklyChars({ tagline }: { tagline: string }) {
           spammy output, more intentional expression, and a way to give people
           you value more voice.
         </Post.Card.Body>
-        <Post.DemoButton
-          title="Try the demo"
-          demoComponent={<WeeklyCharsDemo />}
-        />
+        <Post.DemoButton>
+          <WeeklyCharsDemo />
+        </Post.DemoButton>
       </Post.Card>
     </Post>
   );

@@ -1,17 +1,17 @@
 import Post from "~/templates/Post";
 
-export default function EvolutionRace({ tagline }: { tagline: string }) {
+export default function EvolutionRace() {
   return (
-    <Post tagline={tagline}>
+    <Post>
       <Post.Card>
         <Post.Card.Title>Purpose</Post.Card.Title>
         <Post.Card.Body>
-          Evolution is one of biology&apos;s most fundamental concepts, yet
-          it&apos;s often taught passively. Evolution Race makes it active:
-          players feel the pressure of natural selection by making the choices
-          that shaped real species.
-          <br />
-          <br />
+          Evolution is one of biology's most fundamental concepts, yet it's
+          often taught passively. Evolution Race makes it active: players feel
+          the pressure of natural selection by making the choices that shaped
+          real species.
+        </Post.Card.Body>
+        <Post.Card.Body>
           The goal is a classroom web game so engaging that students play it
           during lunch break (and teachers pay for it).
         </Post.Card.Body>
@@ -23,17 +23,17 @@ export default function EvolutionRace({ tagline }: { tagline: string }) {
           All players start as the same ancient ancestor and race to evolve into
           a target modern species — for example, from an early hoofed mammal to
           a modern horse.
-          <br />
-          <br />
+        </Post.Card.Body>
+        <Post.Card.Body>
           At each step, every player independently chooses between three
           evolutionary directions. Only one path leads toward the target. The
           others veer off into dead ends — or extinction. Choose a lineage that
-          went extinct and it&apos;s game over; you restart from the beginning.
-          <br />
-          <br />
+          went extinct and it's game over; you restart from the beginning.
+        </Post.Card.Body>
+        <Post.Card.Body>
           The first player to reach the target species wins.
-          <br />
-          <br />
+        </Post.Card.Body>
+        <Post.Card.Body>
           Throughout the race, each player can see their full evolutionary path
           and how their species looked at every stage — visualized as a branch
           in the tree of life.
@@ -51,8 +51,8 @@ export default function EvolutionRace({ tagline }: { tagline: string }) {
             tapirs, rhinoceroses, hippo relatives, deer and cows. Only the
             correct sequence of choices reaches <em>Equus</em> — the modern
             horse.
-            <br />
-            <br />
+          </Post.Card.Body>
+          <Post.Card.Body>
             Every wrong answer is grounded in actual evolutionary history, so
             losing still teaches something real.
           </Post.Card.Body>
@@ -66,15 +66,7 @@ export default function EvolutionRace({ tagline }: { tagline: string }) {
             while the winning path reaches the target species at the tip. This
             makes the competitive race also a map of deep evolutionary time. A
             good reference for what this could look like is{" "}
-            <a
-              href="https://www.onezoom.org/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary hover:underline"
-            >
-              onezoom.org
-            </a>
-            .
+            <Post.Link href="https://www.onezoom.org/">onezoom.org</Post.Link>.
           </Post.Card.Body>
         </Post.Card>
       </Post.Card>

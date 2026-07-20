@@ -1,18 +1,18 @@
 import Post from "~/templates/Post";
 
-export default function NetworkAsNetwork({ tagline }: { tagline: string }) {
+export default function NetworkAsNetwork() {
   return (
-    <Post tagline={tagline}>
+    <Post>
       <Post.Card>
         <Post.Card.Title>The Opportunity</Post.Card.Title>
         <Post.Card.Body>
           Social media has optimized for engagement at the cost of genuine
           connection. Billions of users feel manipulated by algorithms they
-          cannot see, yet every &ldquo;healthier&rdquo; alternative has failed
-          to reach mainstream adoption because it stripped away the one thing
-          that makes social media sticky: a real sense of belonging.
-          <br />
-          <br />
+          cannot see, yet every “healthier” alternative has failed to reach
+          mainstream adoption because it stripped away the one thing that makes
+          social media sticky: a real sense of belonging.
+        </Post.Card.Body>
+        <Post.Card.Body>
           This idea is the social network where the algorithm is the product —
           not a black box.
         </Post.Card.Body>
@@ -27,8 +27,8 @@ export default function NetworkAsNetwork({ tagline }: { tagline: string }) {
           alternatives like Mastodon have attracted early adopters but never
           broke through, because visibility and algorithmic transparency alone
           are not compelling enough.
-          <br />
-          <br />
+        </Post.Card.Body>
+        <Post.Card.Body>
           <strong>The core insight:</strong> the missing addictive factor is not
           better content — it is a visible, explorable sense of where you belong
           in a network of other people. Seeing, feeling, and navigating your own
@@ -42,8 +42,8 @@ export default function NetworkAsNetwork({ tagline }: { tagline: string }) {
           Network as Network makes the social graph the primary interface.
           Rather than burying the algorithm behind an infinite scroll, we
           surface it as an interactive visualization of your social world. You
-          don&apos;t just receive posts — you see <em>why</em> those people are
-          in your world, how strongly they connect to you, and how they cluster
+          don't just receive posts — you see <em>why</em> those people are in
+          your world, how strongly they connect to you, and how they cluster
           together.
         </Post.Card.Body>
 
@@ -55,12 +55,12 @@ export default function NetworkAsNetwork({ tagline }: { tagline: string }) {
             community, your close friends, a professional group. Edges between
             nodes reflect interaction strength and direction: wider where
             interaction is heavier, asymmetric where it is one-sided.
-            <br />
-            <br />
-            Tap any node to re-center the graph around that person&apos;s
-            network. Explore their clusters, discover adjacent communities,
-            navigate back. The graph becomes a living, explorable map of your
-            social world.
+          </Post.Card.Body>
+          <Post.Card.Body>
+            Tap any node to re-center the graph around that person's network.
+            Explore their clusters, discover adjacent communities, navigate
+            back. The graph becomes a living, explorable map of your social
+            world.
           </Post.Card.Body>
         </Post.Card>
 
@@ -79,7 +79,7 @@ export default function NetworkAsNetwork({ tagline }: { tagline: string }) {
           <Post.Card.Title>The Profile View</Post.Card.Title>
           <Post.Card.Body>
             Standard profile functionality: posts (images, video, captions),
-            with the user&apos;s position in their own network visible.
+            with the user's position in their own network visible.
           </Post.Card.Body>
         </Post.Card>
       </Post.Card>
@@ -87,14 +87,14 @@ export default function NetworkAsNetwork({ tagline }: { tagline: string }) {
       <Post.Card>
         <Post.Card.Title>Why Now</Post.Card.Title>
         <Post.Card.Body>
-          <ul className="list-inside list-disc space-y-1 p-2">
+          <Post.List>
             <li>
               This is better for community, bringing people together rather than
               separating them into their own doom-scroll filter bubble
               addictions.
             </li>
             <li>
-              The EU&apos;s Digital Services Act now mandates algorithmic
+              The EU's Digital Services Act now mandates algorithmic
               transparency for large platforms.
             </li>
             <li>
@@ -109,7 +109,7 @@ export default function NetworkAsNetwork({ tagline }: { tagline: string }) {
                 index={2}
               />
             </li>
-          </ul>
+          </Post.List>
         </Post.Card.Body>
       </Post.Card>
 

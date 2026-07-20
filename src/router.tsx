@@ -2,6 +2,7 @@ import { createBrowserRouter, Outlet, Navigate } from "react-router";
 import { ideas } from "./ideas";
 import { Header } from "~/components/Header";
 import Landing from "~/pages/Landing";
+import { PostMetaProvider } from "~/templates/Post";
 
 function RootLayout() {
   return (
@@ -22,7 +23,11 @@ export const router = createBrowserRouter([
       { index: true, element: <Landing /> },
       ...ideas.map((idea) => ({
         path: idea.path,
-        element: <idea.component tagline={idea.tagline} />,
+        element: (
+          <PostMetaProvider meta={idea}>
+            <idea.component />
+          </PostMetaProvider>
+        ),
       })),
       { path: "*", element: <Navigate to="/" replace /> },
     ],
