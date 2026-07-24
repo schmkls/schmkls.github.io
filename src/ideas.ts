@@ -1,5 +1,5 @@
 import type { ComponentType } from "react";
-import TinderForExpenses from "~/pages/TinderForExpenses";
+import TinderForExpenses from "~/pages/TinderForExpenses/TinderForExpenses";
 import VisualizeSocialNetworks from "~/pages/VisualizeSocialNetworks";
 import NetworkAsNetwork from "~/pages/NetworkAsNetwork";
 import MusicGuessr from "~/pages/MusicGuessr";
@@ -7,18 +7,18 @@ import Encircled from "~/pages/Encircled";
 import FindToWatch from "~/pages/FindToWatch";
 import PokemonIRL from "~/pages/PokemonIRL";
 import EvolutionRace from "~/pages/EvolutionRace";
-import Friction from "~/pages/Friction";
-import FrictionDemo from "~/pages/Friction/FrictionDemo/FrictionDemo";
+import Friction from "~/pages/Friction/Friction";
+import FrictionDemo from "~/pages/Friction/Demo/FrictionDemo";
 import ReceiptPoll from "~/pages/ReceiptPoll";
-import WeeklyChars from "~/pages/WeeklyChars";
-import TinderForExpensesDemo from "~/pages/TinderForExpenses/TinderForExpensesDemo";
-import WeeklyCharsDemo from "~/pages/WeeklyChars/WeeklyCharsDemo";
+import WeeklyChars from "~/pages/WeeklyChars/WeeklyChars";
+import TinderForExpensesDemo from "~/pages/TinderForExpenses/Demo/TinderForExpensesDemo";
+import WeeklyCharsDemo from "~/pages/WeeklyChars/Demo/WeeklyCharsDemo";
 import JobSeeker from "~/pages/JobSeeker";
 import PlaceYourMusic from "~/pages/PlaceYourMusic";
 import Salesque from "~/pages/Salesque";
 import Clickguider from "~/pages/Clickguider";
-import Referensee from "~/pages/Referensee";
-import ReferenseeFocusStage from "~/pages/Referensee/ReferenseeFocusStageDemo/ReferenseeFocusStage";
+import Referensee from "~/pages/Referensee/Referensee";
+import ReferenseeFocusStage from "~/pages/Referensee/Demo/ReferenseeFocusStage/ReferenseeFocusStage";
 
 interface Idea {
   path: string;

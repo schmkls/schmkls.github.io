@@ -1,5 +1,5 @@
 import Post from "~/templates/Post";
-import WeeklyCharsDemo from "./WeeklyCharsDemo";
+import WeeklyCharsDemo from "./Demo/WeeklyCharsDemo";
 
 export default function WeeklyChars() {
   return (

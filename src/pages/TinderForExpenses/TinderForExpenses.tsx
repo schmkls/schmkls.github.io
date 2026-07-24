@@ -1,5 +1,5 @@
 import Post from "~/templates/Post";
-import TinderForExpensesDemo from "./TinderForExpensesDemo";
+import TinderForExpensesDemo from "./Demo/TinderForExpensesDemo";
 
 export default function TinderForExpenses() {
   return (

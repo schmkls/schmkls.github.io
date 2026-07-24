@@ -1,5 +1,5 @@
 import Post from "~/templates/Post";
-import FrictionDemo from "./FrictionDemo/FrictionDemo";
+import FrictionDemo from "./Demo/FrictionDemo";
 
 export default function Friction() {
   return (

@@ -1,6 +1,6 @@
 import Post from "~/templates/Post";
-import ReferenseeDemo from "./ReferenseeDemo/ReferenseeDemo";
-import ReferenseeFocusStage from "./ReferenseeFocusStageDemo/ReferenseeFocusStage";
+import ReferenseeDemo from "./Demo/ReferenseeDemo/ReferenseeDemo";
+import ReferenseeFocusStage from "./Demo/ReferenseeFocusStage/ReferenseeFocusStage";
 
 export default function Referensee() {
   return (
