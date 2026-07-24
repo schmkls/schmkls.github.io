@@ -9,6 +9,9 @@ import { cn } from "~/lib/utils";
  *   export default function MyIdea() {
  *     return (
  *       <Post>
+ *         <Post.Epigraph cite="Author" href="https://example.com">
+ *           standalone quote, outside any card
+ *         </Post.Epigraph>
  *         <Post.Card>
  *           <Post.Card.Title>Problem</Post.Card.Title>
  *           <Post.Card.Body>
@@ -149,6 +152,25 @@ function Link({ href, children }: { href: string; children: ReactNode }) {
   );
 }
 
+function Epigraph({
+  cite,
+  href,
+  children,
+}: {
+  cite: ReactNode;
+  href?: string;
+  children: ReactNode;
+}) {
+  return (
+    <figure className="text-muted-foreground mx-auto max-w-xl text-center">
+      <blockquote className="text-base/relaxed italic">“{children}”</blockquote>
+      <figcaption className="mt-1 text-sm">
+        — {href ? <Link href={href}>{cite}</Link> : cite}
+      </figcaption>
+    </figure>
+  );
+}
+
 function Blockquote({ children }: { children: ReactNode }) {
   return (
     <blockquote className="border-border border-l-2 pl-4">
@@ -191,6 +213,7 @@ Card.Body = CardBody;
 Post.Card = Card;
 Post.List = List;
 Post.Link = Link;
+Post.Epigraph = Epigraph;
 Post.Blockquote = Blockquote;
 Post.SourceLink = SourceLink;
 Post.DemoButton = PostDemoButton;

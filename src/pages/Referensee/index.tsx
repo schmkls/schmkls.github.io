@@ -4,41 +4,24 @@ import ReferenseeDemo from "./ReferenseeDemo/ReferenseeDemo";
 export default function Referensee() {
   return (
     <Post>
+      <Post.Epigraph
+        cite="James Madison"
+        href="https://founders.archives.gov/documents/Madison/04-02-02-0480"
+      >
+        Knowledge will forever govern ignorance.
+      </Post.Epigraph>
+
       <Post.Card>
         <Post.Card.Title>Problem</Post.Card.Title>
         <Post.Card.Body>
-          We consume more news than ever, from more places than ever — and
-          almost none of it tells us where it came from. On an ordinary day you
-          scroll X or Instagram, then open svt.se, and at no point can you see:
+          Every piece of news reaches you at the end of a chain: something
+          happens, someone reports or films it, others pick that up, quote it,
+          and reframe it — until one version lands in your feed. Posts and
+          articles often point to their sources, but actually following the
+          chain — checking what each source really says, how the information was
+          originally gathered, and what got added or twisted along the way — is
+          far too tiresome to do by hand.
           <Post.List>
-            <li>
-              where a claim originally came from, and how it traveled to the
-              feed showing it to you
-            </li>
-            <li>
-              which statements in a post or article are actually backed by a
-              source
-            </li>
-            <li>
-              how other outlets and communities are covering the same story —
-              and where they disagree
-            </li>
-          </Post.List>
-        </Post.Card.Body>
-        <Post.Card.Body>
-          It's tempting to call this a "filter bubble." But the bubble is the
-          least of it: research — including the{" "}
-          <Post.Link href="https://reutersinstitute.politics.ox.ac.uk/echo-chambers-filter-bubbles-and-polarisation-literature-review">
-            Reuters Institute's own literature review
-          </Post.Link>{" "}
-          — finds echo chambers are weaker and more overstated than the popular
-          story, and that most people do run into opposing views. The concrete
-          problems are harder to dismiss:
-          <Post.List>
-            <li>
-              <strong>Volume</strong> — far too much to cross-check anything by
-              hand.
-            </li>
             <li>
               <strong>Low trust</strong> —{" "}
               <Post.Link href="https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2026/dnr-executive-summary">
@@ -47,19 +30,18 @@ export default function Referensee() {
               ; people genuinely don't know what to believe.
             </li>
             <li>
-              <strong>Fragmentation</strong> — news arrives through dozens of
-              platforms and feeds, each with its own framing.
-            </li>
-            <li>
               <strong>Crude bias labels</strong> — the tools that exist rate
               whole publications on a fixed left–right axis, which says little
               about the specific article in front of you.
             </li>
+            <li>
+              <strong>More AI-generated content</strong> — a growing share of
+              online content is produced by AI agents, whether with intent to
+              mislead or simply as a by-product of pursuing some other goal.
+              Either way, it has become cheap to flood feeds with content that
+              shapes perspectives — or outright propaganda.
+            </li>
           </Post.List>
-        </Post.Card.Body>
-        <Post.Card.Body>
-          Seeing past your own feed still takes real work — juggling extra
-          accounts, VPNs, or hunting down the same story at another outlet.
         </Post.Card.Body>
       </Post.Card>
 
@@ -72,7 +54,12 @@ export default function Referensee() {
           of the individual article or post, not the publication.
         </Post.Card.Body>
         <Post.Card.Body>
-          Point Referensee at an X post or news article and it renders:
+          The main view puts one post or article in focus, with its connections
+          laid out around it as smaller cards: <strong>upward</strong>, the
+          sources it draws on; <strong>downward</strong>, the posts and articles
+          that later used it as a source or reference it;{" "}
+          <strong>horizontally</strong>, contrasting perspectives on the same
+          story.
         </Post.Card.Body>
         <Post.Card.Body>
           <strong>
@@ -82,8 +69,14 @@ export default function Referensee() {
           <Post.List>
             <li>
               <strong>Upward:</strong> the sources the piece draws on, traced
-              recursively — each a card (title, date, author) with a note on
-              what that source is used for.
+              recursively — each a card (title, date, author).
+            </li>
+            <li>
+              <strong>Annotated links:</strong> every connection to a source is
+              labeled with which claim in the piece it backs — and with what the
+              source <em>actually says</em> about that claim. A citation that
+              only partially supports its statement, or says something different
+              altogether, is visible at a glance.
             </li>
             <li>
               <strong>Alongside:</strong> which specific facts or statements in
@@ -121,21 +114,13 @@ export default function Referensee() {
         <Post.Card.Body>
           Check a box and the coverage re-sorts around that stance.
         </Post.Card.Body>
-
-        <Post.Card.Subtitle>Feed view</Post.Card.Subtitle>
         <Post.Card.Body>
-          Beyond single links, Referensee supports scrollable feeds from popular
-          sources, so the same provenance and contrast layer applies as you
-          browse — for example NY Times, Al Jazeera, an X profile, or an
-          Instagram profile or hashtag.
+          <strong>Two ways in.</strong> Paste a link to any post or article to
+          put it in focus on demand — or browse a scrollable feed from a popular
+          source (NY Times, Al Jazeera, an X profile, an Instagram profile or
+          hashtag), with the same provenance-and-contrast view one tap away from
+          anything in the feed.
         </Post.Card.Body>
-
-        <Post.Card.Subtitle>Pasting a link</Post.Card.Subtitle>
-        <Post.Card.Body>
-          Paste a link to any post or article to get its provenance tree and
-          contrasting-coverage view on demand.
-        </Post.Card.Body>
-
         <Post.Card.Body>
           <Post.Blockquote>
             <strong>Delivery.</strong> Referensee starts as a standalone web
@@ -184,7 +169,8 @@ export default function Referensee() {
             <li>
               <strong>Stance detection</strong> — classify how other coverage
               treats each claim (supports / refutes / differs); this powers both
-              contrasting perspectives and the claim filters.
+              contrasting perspectives, the claim filters, and the annotations
+              on source links.
             </li>
             <li>
               <strong>Clustering & summarization</strong> — group articles on
@@ -199,10 +185,11 @@ export default function Referensee() {
         </Post.Card.Body>
         <Post.Card.Body>
           <strong>MVP.</strong> Paste a news-article URL → extract its claims
-          and likely source articles → render the upward source tree, flag
-          unsupported statements, and show a few contrasting-coverage links with
-          one-line stance summaries. Deferred: the full recursive downward
-          reshare graph, live social feeds, and X/Instagram integration.
+          and likely source articles → render the upward source tree with
+          annotated links, flag unsupported statements, and show a few
+          contrasting-coverage links with one-line stance summaries. Deferred:
+          the full recursive downward reshare graph, live social feeds, and
+          X/Instagram integration.
         </Post.Card.Body>
       </Post.Card>
 
