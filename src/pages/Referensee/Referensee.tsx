@@ -131,10 +131,10 @@ export default function Referensee() {
         </Post.Card.Body>
         <Post.DemoButtons>
           <Post.DemoButton label="Demo">
-            <ReferenseeFocusStage mode="lines" />
+            <ReferenseeFocusStage mode="sections" />
           </Post.DemoButton>
           <Post.DemoButton label="Alternative demo">
-            <ReferenseeFocusStage mode="sections" />
+            <ReferenseeFocusStage mode="lines" />
           </Post.DemoButton>
           <Post.DemoButton label="Alternative 2 demo">
             <ReferenseeDemo />

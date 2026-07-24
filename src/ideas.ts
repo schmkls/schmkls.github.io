@@ -20,7 +20,7 @@ import Clickguider from "~/pages/Clickguider";
 import Referensee from "~/pages/Referensee/Referensee";
 import ReferenseeFocusStage from "~/pages/Referensee/Demo/ReferenseeFocusStage/ReferenseeFocusStage";
 
-interface Idea {
+export interface Idea {
   path: string;
   title: string;
   tagline: string;

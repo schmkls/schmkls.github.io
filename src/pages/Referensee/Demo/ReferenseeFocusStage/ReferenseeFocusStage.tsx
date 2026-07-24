@@ -434,7 +434,7 @@ function Tally({ piece }: { piece: Piece }) {
 /* ---------------------------- main component --------------------------- */
 
 export default function ReferenseeFocusStage({
-  mode = "lines",
+  mode = "sections",
 }: {
   mode?: Mode;
 }) {
