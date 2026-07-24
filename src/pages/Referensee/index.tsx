@@ -1,5 +1,6 @@
 import Post from "~/templates/Post";
 import ReferenseeDemo from "./ReferenseeDemo/ReferenseeDemo";
+import ReferenseeFocusStage from "./ReferenseeFocusStageDemo/ReferenseeFocusStage";
 
 export default function Referensee() {
   return (
@@ -128,9 +129,17 @@ export default function Referensee() {
             directly onto X and news sites is a natural later expansion.
           </Post.Blockquote>
         </Post.Card.Body>
-        <Post.DemoButton>
-          <ReferenseeDemo />
-        </Post.DemoButton>
+        <Post.DemoButtons>
+          <Post.DemoButton label="Demo">
+            <ReferenseeFocusStage mode="lines" />
+          </Post.DemoButton>
+          <Post.DemoButton label="Alternative demo">
+            <ReferenseeFocusStage mode="sections" />
+          </Post.DemoButton>
+          <Post.DemoButton label="Alternative 2 demo">
+            <ReferenseeDemo />
+          </Post.DemoButton>
+        </Post.DemoButtons>
       </Post.Card>
 
       <Post.Card>

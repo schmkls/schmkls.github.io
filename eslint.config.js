@@ -68,6 +68,13 @@ export default defineConfig([
           allowedFiles: ["**/*Demo*/**", "**/*Demo*"],
         },
       ],
+      //  TODO: It is probably better to structure the demos in a more deterministic/expectable way,
+      //  such as always having a /Demo folder for demos
+      //  Demos deliberately hard-code their own palettes in inline styles.
+      "tailwind-palette-guard/no-inline-color-styles": [
+        "warn",
+        { allowedFiles: ["**/*Demo*/**", "**/*Demo*"] },
+      ],
     },
   },
   {

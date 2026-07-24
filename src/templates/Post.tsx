@@ -27,6 +27,10 @@ import { cn } from "~/lib/utils";
  *           </Post.Card.Body>
  *           <Post.Card.Subtitle>Optional subheading</Post.Card.Subtitle>
  *           <Post.DemoButton><MyIdeaDemo /></Post.DemoButton>
+ *           <Post.DemoButtons>          — or several demos side by side
+ *             <Post.DemoButton label="Demo"><MyIdeaDemo /></Post.DemoButton>
+ *             <Post.DemoButton label="Alt demo"><OtherDemo /></Post.DemoButton>
+ *           </Post.DemoButtons>
  *         </Post.Card>
  *       </Post>
  *     );
@@ -207,6 +211,11 @@ function PostDemoButton({
   );
 }
 
+/** Lays out several labeled `Post.DemoButton`s side by side. */
+function PostDemoButtons({ children }: { children: ReactNode }) {
+  return <div className="flex flex-wrap gap-3">{children}</div>;
+}
+
 Card.Title = CardTitle;
 Card.Subtitle = CardSubtitle;
 Card.Body = CardBody;
@@ -217,5 +226,6 @@ Post.Epigraph = Epigraph;
 Post.Blockquote = Blockquote;
 Post.SourceLink = SourceLink;
 Post.DemoButton = PostDemoButton;
+Post.DemoButtons = PostDemoButtons;
 
 export default Post;
