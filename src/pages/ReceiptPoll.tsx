@@ -16,9 +16,13 @@ export default function ReceiptPoll() {
         <Post.Card.Title>The Solution</Post.Card.Title>
         <Post.Card.Body>
           Turn requests into interaction through purchases. Every bar receipt
-          includes a QR code. Guests scan it to upvote songs in the queue, so
-          the crowd still shapes the night, but in a way that is fun,
-          structured, and tied to revenue.
+          includes a QR code. Guests scan it to vote between two song
+          alternatives, so the crowd still shapes the night, but in a way that
+          is fun, structured, and tied to revenue.
+        </Post.Card.Body>
+        <Post.Card.Body>
+          This should probably be an integration to{" "}
+          <Post.Link href="https://www.soundtrack.io/">Soundtrack.io</Post.Link>
         </Post.Card.Body>
       </Post.Card>
     </Post>

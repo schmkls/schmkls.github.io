@@ -1,5 +1,4 @@
 import Post from "~/templates/Post";
-import ReferenseeDemo from "./Demo/ReferenseeDemo/ReferenseeDemo";
 import ReferenseeFocusStage from "./Demo/ReferenseeFocusStage/ReferenseeFocusStage";
 
 export default function Referensee() {
@@ -40,7 +39,12 @@ export default function Referensee() {
               online content is produced by AI agents, whether with intent to
               mislead or simply as a by-product of pursuing some other goal.
               Either way, it has become cheap to flood feeds with content that
-              shapes perspectives — or outright propaganda.
+              shapes perspectives — or outright propaganda. And unlike a
+              journalist, AI carries no responsibility to cite its sources: it
+              produces confident claims with no trail back to where they came
+              from. As that kind of content compounds, tracing what is true —
+              and knowing who to trust — only gets harder. That is not
+              sustainable. This was written by AI btw. 
             </li>
           </Post.List>
         </Post.Card.Body>
@@ -135,9 +139,6 @@ export default function Referensee() {
           </Post.DemoButton>
           <Post.DemoButton label="Alternative demo">
             <ReferenseeFocusStage mode="lines" />
-          </Post.DemoButton>
-          <Post.DemoButton label="Alternative 2 demo">
-            <ReferenseeDemo />
           </Post.DemoButton>
         </Post.DemoButtons>
       </Post.Card>
