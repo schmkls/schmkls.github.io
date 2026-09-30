@@ -19,6 +19,9 @@ import Salesque from "~/pages/Salesque";
 import Clickguider from "~/pages/Clickguider";
 import Referensee from "~/pages/Referensee/Referensee";
 import ReferenseeFocusStage from "~/pages/Referensee/Demo/ReferenseeFocusStage/ReferenseeFocusStage";
+import StatGuessr from "~/pages/StatGuessr";
+import ReadingPens from "~/pages/ReadingPens";
+import ViewingRoute from "~/pages/ViewingRoute";
 
 export interface Idea {
   path: string;
@@ -73,6 +76,12 @@ export const sections: IdeaSection[] = [
         tagline:
           "A multiplayer classroom game where students race through evolution",
         component: EvolutionRace,
+      },
+      {
+        path: "stat-guessr",
+        title: "StatGuessr",
+        tagline: "Guess the number, score by how close you were",
+        component: StatGuessr,
       },
     ],
   },
@@ -145,6 +154,18 @@ export const sections: IdeaSection[] = [
         title: "Find to Watch",
         tagline: "Spotify Blend for movies",
         component: FindToWatch,
+      },
+      {
+        path: "reading-pens",
+        title: "Reading Pens",
+        tagline: "Highlight a passage, pick what happens to it",
+        component: ReadingPens,
+      },
+      {
+        path: "viewing-route",
+        title: "Viewing Route",
+        tagline: "Fit more home viewings into one day",
+        component: ViewingRoute,
       },
     ],
   },
