@@ -19,16 +19,11 @@ Ideas I want to build, written as plain Markdown. The site at https://schmkls.gi
 | `_layouts/default.html` | The page around every post: the left menu and the content. |
 | `style.css` | The GitHub-like look, dark mode from the OS, the phone layout. |
 | `_config.yml` | Uses GitHub's Markdown renderer and gives posts clean URLs. |
-| `.gitignore` | Ignores local build output. |
+| `.gitignore` | Keeps local files (macOS `.DS_Store`, a private `todo/` folder, local build output) out of git. |
 | `LICENSE` | The license. |
 
 ## How it is built
 
 GitHub Pages runs Jekyll on every push to `main` (Settings → Pages → Deploy from a branch). There is no build of our own, no workflow and no dependencies. Posts are ordered alphabetically by file name.
 
-To preview locally without Docker, open a post in VS Code's Markdown preview. For the full site, run GitHub's own image:
-
-```sh
-docker run --rm --platform linux/amd64 -v "$PWD":/src -p 4000:4000 -e PAGES_ENV=dotcom -e PAGES_REPO_NWO=schmkls/schmkls.github.io \
-  --entrypoint sh ghcr.io/actions/jekyll-build-pages:v1.0.13 -c 'cd $BUNDLE_APP_CONFIG && bin/github-pages serve --source /src --host 0.0.0.0'
-```
+To preview a post, open it in VS Code's Markdown preview.
