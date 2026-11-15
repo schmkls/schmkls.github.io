@@ -1,39 +1,34 @@
 # schmkls.github.io
 
-A personal ideas showcase built with React, TypeScript, and Tailwind.
+My personal site at https://schmkls.github.io: a collection of ideas I want to build, one Markdown file per idea. Each page has a left menu with Home and every post.
 
-## Stack
+## Run locally
 
-- React 19 + TypeScript
-- Vite
-- React Router v7
-- Tailwind v4
-- shadcn components (`src/components/ui/`)
-- Lucide icons
+There is nothing to install. Open a post in VS Code and use its Markdown preview (`Cmd+Shift+V`) to see how it reads.
 
-## Development
+## Develop
 
-```bash
-npm install
-npm run dev
-```
+### Add a post
 
-## Adding an idea
+1. Create `posts/<slug>.md`. The file name is the URL: `posts/friction.md` is `/friction`.
+2. Start it with `# Title`, then one short paragraph. That paragraph is the tagline shown on Home.
+3. Put images in `posts/<slug>/` and link them as `![alt](<slug>/image.png)`.
 
-1. Add an entry to `src/ideas.ts` (path + title)
-2. Create `src/pages/YourIdea/index.tsx` using the `Post` template
-3. Add the component to the `ideaComponents` map in `src/router.tsx`
+The menu and Home pick up the new post by themselves. Posts are ordered alphabetically by file name.
 
-## Scripts
+### What each file is for
 
-```bash
-npm run dev          # Start dev server
-npm run build        # Type check + build
-npm run check        # tsc + lint + prettier + knip
-npm run lint:fix     # Fix lint issues
-npm run prettier:fix # Fix formatting
-```
+| File | Purpose |
+| --- | --- |
+| `posts/<slug>.md` | One post. Its first `#` heading is the title in the menu. |
+| `posts/<slug>/` | That post's images. |
+| `index.md` | Home. Lists every post with its tagline, generated. |
+| `_layouts/default.html` | The page around every post: the left menu and the content. |
+| `style.css` | The look, dark mode from the OS, the phone layout. |
+| `_config.yml` | Markdown renderer and clean post URLs. |
+| `.gitignore` | Keeps local files (macOS `.DS_Store`, a private `todo/` folder, local build output) out of git. |
+| `LICENSE` | The license. |
 
-## Deployment
+## Deploy
 
-Deployed via GitHub Pages from this repository.
+Push to `main`. GitHub Pages builds the site with Jekyll and publishes it (Settings → Pages → Deploy from a branch). There is no build step or workflow in this repo.

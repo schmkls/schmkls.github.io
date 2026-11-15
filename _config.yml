@@ -1,0 +1,4 @@
+markdown: GFM
+defaults:
+  - scope: { path: posts }
+    values: { permalink: /:basename }

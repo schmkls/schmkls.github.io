@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ page.title | default: "Schmkls" }}</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<nav>
+<a href="/"{% if page.url == "/" %} aria-current="page"{% endif %}>Home</a>
+<ul>
+{%- assign posts = site.pages | where_exp: "p", "p.path contains 'posts/'" %}
+{%- for p in posts %}
+<li><a href="{{ p.url }}"{% if p.url == page.url %} aria-current="page"{% endif %}>{{ p.title }}</a></li>
+{%- endfor %}
+</ul>
+</nav>
+<main>
+{{ content }}
+</main>
+</body>
+</html>
