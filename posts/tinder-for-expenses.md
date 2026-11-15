@@ -30,6 +30,10 @@ You swipe through your expenses and sort them into categories. The default categ
 
 Over time, you can track how your spending patterns shift across categories.
 
+![An expense card (99 kr, Spotify) being swiped right and stamped 'Worth it'.](tinder-for-expenses/swipe.png)
+
+![Overview tab with a monthly bar chart of Worth it versus Not worth it expenses, October to February.](tinder-for-expenses/overview.png)
+
 ## Feasibility
 
 - Getting meaningful item-level data from raw bank transactions is difficult. Without knowing what was actually purchased, users can't make well-informed classifications — itemized receipts would likely be required.

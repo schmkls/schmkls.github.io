@@ -16,3 +16,7 @@ A social platform where every user gets a weekly character budget: one of each c
 - current character inventory (how many of each character)
 
 This is an experiment in increasing **distributional diversity** in communication: less spammy output, more intentional expression, and a way to give people you value more voice.
+
+![WeeklyChars feed: short, abbreviated posts, each with the characters it received from other users.](weekly-chars/feed.png)
+
+![A profile showing the user's character inventory (how many of each letter, digit, symbol and emoji is left) above their posts.](weekly-chars/profile.png)

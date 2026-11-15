@@ -39,6 +39,10 @@ Check a box and the coverage re-sorts around that stance.
 
 > **Delivery.** Referensee starts as a standalone web app. A browser extension that overlays the same visualization directly onto X and news sites is a natural later expansion.
 
+![Referensee's 'sections' view of a tabloid article: its claims sorted into supports, partial, differs and no source found, each linked to the original source.](referensee/sections.png)
+
+![Referensee's 'lines' view: the article at the bottom, with lines labelled supports, partial, differs or no source found tracing each claim up to the sources it came from, and how other outlets tell the story on the right.](referensee/lines.png)
+
 ## Feasibility
 
 The core is a scraping + AI pipeline.
