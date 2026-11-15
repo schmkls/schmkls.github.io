@@ -1,39 +1,34 @@
 # schmkls.github.io
 
-A personal ideas showcase built with React, TypeScript, and Tailwind.
+Ideas I want to build, written as plain Markdown. The site at https://schmkls.github.io looks like GitHub's Markdown preview: a left menu with Home and every post, and no JavaScript.
 
-## Stack
+## Add a post
 
-- React 19 + TypeScript
-- Vite
-- React Router v7
-- Tailwind v4
-- shadcn components (`src/components/ui/`)
-- Lucide icons
+1. Create `posts/<slug>.md`. The file name is the URL: `posts/friction.md` is `/friction`.
+2. Start it with `# Title`, then one short paragraph. That paragraph is the tagline shown on Home.
+3. Put images in `posts/<slug>/` and link them as `![alt](<slug>/image.png)`.
+4. Commit and push. The menu and Home update by themselves. Nothing else to touch.
 
-## Development
+## What each file is for
 
-```bash
-npm install
-npm run dev
+| File | Purpose |
+| --- | --- |
+| `posts/<slug>.md` | One post. Its first `#` heading is the title in the menu. |
+| `posts/<slug>/` | That post's images. |
+| `index.md` | Home. Lists every post with its tagline, generated. |
+| `_layouts/default.html` | The page around every post: the left menu and the content. |
+| `style.css` | The GitHub-like look, dark mode from the OS, the phone layout. |
+| `_config.yml` | Uses GitHub's Markdown renderer and gives posts clean URLs. |
+| `.gitignore` | Ignores local build output. |
+| `LICENSE` | The license. |
+
+## How it is built
+
+GitHub Pages runs Jekyll on every push to `main` (Settings → Pages → Deploy from a branch). There is no build of our own, no workflow and no dependencies. Posts are ordered alphabetically by file name.
+
+To preview locally without Docker, open a post in VS Code's Markdown preview. For the full site, run GitHub's own image:
+
+```sh
+docker run --rm --platform linux/amd64 -v "$PWD":/src -p 4000:4000 -e PAGES_ENV=dotcom -e PAGES_REPO_NWO=schmkls/schmkls.github.io \
+  --entrypoint sh ghcr.io/actions/jekyll-build-pages:v1.0.13 -c 'cd $BUNDLE_APP_CONFIG && bin/github-pages serve --source /src --host 0.0.0.0'
 ```
-
-## Adding an idea
-
-1. Add an entry to `src/ideas.ts` (path + title)
-2. Create `src/pages/YourIdea/index.tsx` using the `Post` template
-3. Add the component to the `ideaComponents` map in `src/router.tsx`
-
-## Scripts
-
-```bash
-npm run dev          # Start dev server
-npm run build        # Type check + build
-npm run check        # tsc + lint + prettier + knip
-npm run lint:fix     # Fix lint issues
-npm run prettier:fix # Fix formatting
-```
-
-## Deployment
-
-Deployed via GitHub Pages from this repository.
