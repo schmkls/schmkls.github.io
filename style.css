@@ -20,6 +20,10 @@
   }
 }
 
+html {
+  scrollbar-gutter: stable;
+}
+
 body {
   display: flex;
   gap: 3rem;
@@ -120,6 +124,7 @@ td {
   }
 
   nav {
+    position: static;
     margin-bottom: 1.5rem;
   }
 
